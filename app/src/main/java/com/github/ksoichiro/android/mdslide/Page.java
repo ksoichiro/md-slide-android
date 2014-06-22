@@ -11,4 +11,17 @@ public class Page implements Serializable {
         contents = new ArrayList<Content>();
     }
 
+    public boolean hasImage() {
+        if (contents == null) {
+            return false;
+        }
+        boolean contains = false;
+        for (Content c : contents) {
+            if (c.contentType == ContentType.IMG) {
+                contains = true;
+                break;
+            }
+        }
+        return contains;
+    }
 }

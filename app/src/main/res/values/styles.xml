@@ -16,6 +16,7 @@
         <item name="presentationTextLI3Text">@style/Presentation.Black.Text.LI3.Text</item>
         <item name="presentationTextP">@style/Presentation.Black.Text.P</item>
         <item name="presentationTextCode">@style/Presentation.Black.Text.Code</item>
+        <item name="presentationImg">@style/Presentation.Black.Img</item>
     </style>
 
     <style name="AppBaseWhiteTheme" parent="android:Theme.Holo.Light.DarkActionBar">
@@ -34,6 +35,7 @@
         <item name="presentationTextLI3Text">@style/Presentation.White.Text.LI3.Text</item>
         <item name="presentationTextP">@style/Presentation.White.Text.P</item>
         <item name="presentationTextCode">@style/Presentation.White.Text.Code</item>
+        <item name="presentationImg">@style/Presentation.White.Img</item>
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
@@ -113,6 +115,8 @@
         <item name="fontName">SourceCodePro-Regular.ttf</item>
     </style>
 
+    <style name="Presentation.Black.Img" />
+
     <style name="Presentation.White" />
 
     <style name="Presentation.White.Screen" parent="Presentation.Black.Screen">
@@ -176,5 +180,7 @@
         <item name="android:padding">@dimen/padding_code</item>
         <item name="fontName">SourceCodePro-Regular.ttf</item>
     </style>
+
+    <style name="Presentation.White.Img" />
 
 </resources>

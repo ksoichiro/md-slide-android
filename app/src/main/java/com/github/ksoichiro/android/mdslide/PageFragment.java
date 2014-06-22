@@ -1,15 +1,25 @@
 package com.github.ksoichiro.android.mdslide;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,6 +32,7 @@ public class PageFragment extends Fragment {
         args.putSerializable(ARG_PAGE, page);
         PageFragment fragment = new PageFragment();
         fragment.setArguments(args);
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
         return fragment;
     }
 
@@ -50,6 +61,8 @@ public class PageFragment extends Fragment {
         if (p.contents.size() == 1) {
             parent = inflater.inflate(R.layout.parent_title, null);
             params.width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        } else if (p.hasImage()) {
+            parent = inflater.inflate(R.layout.parent_2row, null);
         } else {
             parent = inflater.inflate(R.layout.parent_default, null);
         }
@@ -58,6 +71,7 @@ public class PageFragment extends Fragment {
         if (p.contents.size() == 1) {
             parentContent.setGravity(Gravity.CENTER);
         }
+        LinearLayout parentContentRight = (LinearLayout) parent.findViewById(R.id.parent_right);
 
         for (Content content : p.contents) {
             int resId = 0;
@@ -83,6 +97,9 @@ public class PageFragment extends Fragment {
                 case CODE:
                     resId = R.layout.parts_code;
                     break;
+                case IMG:
+                    resId = R.layout.parts_img;
+                    break;
                 case P:
                 default:
                     resId = R.layout.parts_p;
@@ -90,8 +107,19 @@ public class PageFragment extends Fragment {
             }
             View layout = inflater.inflate(resId, null);
             TextView tv = (TextView) layout.findViewById(R.id.text);
-            tv.setText(stripLink(content.content));
-            parentContent.addView(layout);
+            if (tv != null) {
+                tv.setText(stripLink(content.content));
+                parentContent.addView(layout);
+            } else {
+                ImageView img = (ImageView) layout.findViewById(R.id.img);
+                if (img != null) {
+                    setImage(img, content);
+                    LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.MATCH_PARENT);
+                    parentContentRight.addView(layout, params2);
+                }
+            }
         }
 
         return root;
@@ -109,5 +137,50 @@ public class PageFragment extends Fragment {
             result = m.group(1) + m.group(2) + m.group(4);
         }
         return result;
+    }
+
+    private void setImage(ImageView img, Content content) {
+        if (img == null) {
+            return;
+        }
+
+        String strUrl = (String) content.attributes.get("url");
+        Log.v("", "Loading image: " + strUrl);
+        LoadImageTask task = new LoadImageTask();
+        task.setImageView(img);
+        task.execute(strUrl);
+    }
+
+    public class LoadImageTask extends AsyncTask<String, Void, Drawable> {
+        private ImageView mImg;
+
+        public void setImageView(final ImageView img) {
+            mImg = img;
+        }
+
+        @Override
+        protected Drawable doInBackground(String... strings) {
+            String strUrl = strings[0];
+            try {
+                App app = (App) getActivity().getApplication();
+                if (app.imageCache.containsKey(strUrl)) {
+                    return app.imageCache.get(strUrl);
+                }
+                URL url = new URL(strUrl);
+                InputStream in = url.openStream();
+                Drawable d = Drawable.createFromStream(in, "image");
+                app.imageCache.put(strUrl, d);
+                return d;
+            } catch (IOException e) {
+                Log.w("", "Loading image failed", e);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Drawable drawable) {
+            super.onPostExecute(drawable);
+            mImg.setImageDrawable(drawable);
+        }
     }
 }

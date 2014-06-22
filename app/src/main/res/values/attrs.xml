@@ -22,6 +22,7 @@
         <attr name="presentationTextLI3Text" format="reference" />
         <attr name="presentationTextP" format="reference" />
         <attr name="presentationTextCode" format="reference" />
+        <attr name="presentationImg" format="reference" />
     </declare-styleable>
 
 </resources>

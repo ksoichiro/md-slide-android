@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Parser {
 
@@ -85,8 +87,29 @@ public class Parser {
                 isCode = true;
                 continue;
             } else if (line.startsWith("![")) {
-                // TODO apply image
-                continue;
+                Pattern p = Pattern.compile("^!\\[([^\\]]*)\\]\\(([^\\)]*)\\)");
+                Matcher m = p.matcher(line);
+                if (m.find()) {
+                    String paramsRaw = m.group(1);
+                    String[] params = new String[0];
+                    if (paramsRaw != null) {
+                        String[] paramsSplit = paramsRaw.split(",");
+                        params = new String[paramsSplit.length];
+                        for (int i = 0; i < paramsSplit.length; i++) {
+                            String param = paramsSplit[i];
+                            params[i] = param.trim();
+                        }
+                    }
+                    String url = m.group(2);
+                    Log.v("", "Image: params: " + paramsRaw);
+                    Log.v("", "Image: url: " + url);
+                    content.contentType = ContentType.IMG;
+                    content.content = "";
+                    content.attributes.put("params", params);
+                    content.attributes.put("url", url);
+                } else {
+                    continue;
+                }
             } else if (!TextUtils.isEmpty(line)) {
                 // p
                 content.contentType = ContentType.P;
