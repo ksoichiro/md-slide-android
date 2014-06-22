@@ -103,10 +103,10 @@ public class PageFragment extends Fragment {
             return s;
         }
         String result = s;
-        Pattern p = Pattern.compile("\\[([^\\]]*)\\]\\(([^\\)]*)\\)");
+        Pattern p = Pattern.compile("^(.*)\\[([^\\]]*)\\]\\(([^\\)]*)\\)(.*)$");
         Matcher m = p.matcher(s);
         if (m.find()) {
-            result = m.group(1);
+            result = m.group(1) + m.group(2) + m.group(4);
         }
         return result;
     }
