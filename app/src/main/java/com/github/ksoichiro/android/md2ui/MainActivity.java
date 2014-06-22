@@ -87,8 +87,6 @@ public class MainActivity extends FragmentActivity {
         if (fullscreen) {
             ActionBar ab = getActionBar();
             if (ab != null) {
-                ab.setHomeButtonEnabled(true);
-                ab.setDisplayHomeAsUpEnabled(true);
                 ab.hide();
             }
 
