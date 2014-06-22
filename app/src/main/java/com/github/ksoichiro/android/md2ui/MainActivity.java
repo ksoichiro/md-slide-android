@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -159,6 +160,22 @@ public class MainActivity extends Activity {
         });
         Page p = mPages.get(page);
         LayoutInflater inflater = LayoutInflater.from(this);
+        View parent;
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        if (p.contents.size() == 1) {
+            parent = inflater.inflate(R.layout.parent_title, null);
+            params.width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        } else {
+            parent = inflater.inflate(R.layout.parent_default, null);
+        }
+        root.addView(parent, params);
+        LinearLayout parentContent = (LinearLayout) findViewById(R.id.parent);
+        if (p.contents.size() == 1) {
+            parentContent.setGravity(Gravity.CENTER);
+        }
+
         for (Content content : p.contents) {
             int resId = 0;
             switch (content.contentType) {
@@ -184,8 +201,9 @@ public class MainActivity extends Activity {
             View layout = inflater.inflate(resId, null);
             TextView tv = (TextView) layout.findViewById(R.id.text);
             tv.setText(content.content);
-            root.addView(layout);
+            parentContent.addView(layout);
         }
+
         mCurrentPage = page;
     }
 
