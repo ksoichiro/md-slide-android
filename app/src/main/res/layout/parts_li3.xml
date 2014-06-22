@@ -2,6 +2,7 @@
     style="?attr/presentationTextLI3"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:gravity="left|top"
     android:orientation="horizontal">
 
     <com.github.ksoichiro.android.md2ui.CustomTextView
