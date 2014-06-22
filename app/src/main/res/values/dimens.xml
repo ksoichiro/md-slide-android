@@ -5,6 +5,7 @@
 
     <dimen name="text_size_h1">34sp</dimen>
     <dimen name="text_size_h2">28sp</dimen>
+    <dimen name="text_size_h3">24sp</dimen>
 
     <dimen name="text_size_li">20sp</dimen>
     <dimen name="text_size_li_burette">16sp</dimen>

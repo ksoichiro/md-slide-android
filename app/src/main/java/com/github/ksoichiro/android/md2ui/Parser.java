@@ -59,6 +59,14 @@ public class Parser {
                 // H2
                 content.contentType = ContentType.H2;
                 content.content = line.substring(3);
+            } else if (line.startsWith("## ")) {
+                // H2
+                content.contentType = ContentType.H2;
+                content.content = line.substring(3);
+            } else if (line.startsWith("### ")) {
+                // H3
+                content.contentType = ContentType.H3;
+                content.content = line.substring(4);
             } else if (line.startsWith("* ") || line.startsWith("- ")) {
                 // ul/li
                 content.contentType = ContentType.LI;

@@ -10,6 +10,7 @@
         <attr name="presentationScreen" format="reference" />
         <attr name="presentationTextH1" format="reference" />
         <attr name="presentationTextH2" format="reference" />
+        <attr name="presentationTextH3" format="reference" />
         <attr name="presentationTextLI" format="reference" />
         <attr name="presentationTextLIBurette" format="reference" />
         <attr name="presentationTextLIText" format="reference" />

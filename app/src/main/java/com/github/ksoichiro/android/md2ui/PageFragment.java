@@ -64,6 +64,9 @@ public class PageFragment extends Fragment {
                 case H2:
                     resId = R.layout.parts_h2;
                     break;
+                case H3:
+                    resId = R.layout.parts_h3;
+                    break;
                 case LI:
                     resId = R.layout.parts_li;
                     break;

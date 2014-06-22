@@ -4,6 +4,7 @@
         <item name="presentationScreen">@style/Presentation.Black.Screen</item>
         <item name="presentationTextH1">@style/Presentation.Black.Text.H1</item>
         <item name="presentationTextH2">@style/Presentation.Black.Text.H2</item>
+        <item name="presentationTextH3">@style/Presentation.Black.Text.H3</item>
         <item name="presentationTextLI">@style/Presentation.Black.Text.LI</item>
         <item name="presentationTextLIBurette">@style/Presentation.Black.Text.LI.Burette</item>
         <item name="presentationTextLIText">@style/Presentation.Black.Text.LI.Text</item>
@@ -21,6 +22,7 @@
         <item name="presentationScreen">@style/Presentation.White.Screen</item>
         <item name="presentationTextH1">@style/Presentation.White.Text.H1</item>
         <item name="presentationTextH2">@style/Presentation.White.Text.H2</item>
+        <item name="presentationTextH3">@style/Presentation.White.Text.H3</item>
         <item name="presentationTextLI">@style/Presentation.White.Text.LI</item>
         <item name="presentationTextLIBurette">@style/Presentation.White.Text.LI.Burette</item>
         <item name="presentationTextLIText">@style/Presentation.White.Text.LI.Text</item>
@@ -62,6 +64,9 @@
     </style>
     <style name="Presentation.Black.Text.H2">
         <item name="android:textSize">@dimen/text_size_h2</item>
+    </style>
+    <style name="Presentation.Black.Text.H3">
+        <item name="android:textSize">@dimen/text_size_h3</item>
     </style>
 
     <style name="Presentation.Black.Text.LI">
@@ -121,6 +126,9 @@
     </style>
     <style name="Presentation.White.Text.H2">
         <item name="android:textSize">@dimen/text_size_h2</item>
+    </style>
+    <style name="Presentation.White.Text.H3">
+        <item name="android:textSize">@dimen/text_size_h3</item>
     </style>
 
     <style name="Presentation.White.Text.LI">
