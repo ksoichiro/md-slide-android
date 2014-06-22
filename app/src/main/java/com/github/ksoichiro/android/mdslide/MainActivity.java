@@ -20,6 +20,7 @@ import java.util.List;
 
 public class MainActivity extends FragmentActivity {
 
+    private Uri mUri;
     private List<Page> mPages;
     private ViewPager mPager;
     private boolean mFullscreen;
@@ -47,6 +48,7 @@ public class MainActivity extends FragmentActivity {
             finish();
             return;
         }
+        mUri = uri;
         mPages = new Parser(uri).parse();
 
         mPager = (ViewPager) findViewById(R.id.pager);
@@ -80,6 +82,9 @@ public class MainActivity extends FragmentActivity {
                 return true;
             case R.id.action_last_page:
                 mPager.setCurrentItem(mPager.getAdapter().getCount() - 1);
+                return true;
+            case R.id.action_reload:
+                reload();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -121,5 +126,14 @@ public class MainActivity extends FragmentActivity {
                 ab.show();
             }
         }
+    }
+
+    private void reload() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.setData(mUri);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }
