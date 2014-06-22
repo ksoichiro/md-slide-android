@@ -1,18 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Presentation.Text.LI2"
+    style="?attr/presentationTextLI2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <com.github.ksoichiro.android.md2ui.CustomTextView
-        style="@style/Presentation.Text.LI2.Burette"
+        style="?attr/presentationTextLI2Burette"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="●"
         />
 
     <com.github.ksoichiro.android.md2ui.CustomTextView
-        style="@style/Presentation.Text.LI2.Text"
+        style="?attr/presentationTextLI2Text"
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

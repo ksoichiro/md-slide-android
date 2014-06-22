@@ -1,16 +1,50 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="presentationScreen">@style/Presentation.Black.Screen</item>
+        <item name="presentationTextH1">@style/Presentation.Black.Text.H1</item>
+        <item name="presentationTextH2">@style/Presentation.Black.Text.H2</item>
+        <item name="presentationTextLI">@style/Presentation.Black.Text.LI</item>
+        <item name="presentationTextLIBurette">@style/Presentation.Black.Text.LI.Burette</item>
+        <item name="presentationTextLIText">@style/Presentation.Black.Text.LI.Text</item>
+        <item name="presentationTextLI2">@style/Presentation.Black.Text.LI2</item>
+        <item name="presentationTextLI2Burette">@style/Presentation.Black.Text.LI2.Burette</item>
+        <item name="presentationTextLI2Text">@style/Presentation.Black.Text.LI2.Text</item>
+        <item name="presentationTextLI3">@style/Presentation.Black.Text.LI3</item>
+        <item name="presentationTextLI3Burette">@style/Presentation.Black.Text.LI3.Burette</item>
+        <item name="presentationTextLI3Text">@style/Presentation.Black.Text.LI3.Text</item>
+        <item name="presentationTextP">@style/Presentation.Black.Text.P</item>
+        <item name="presentationTextCode">@style/Presentation.Black.Text.Code</item>
+    </style>
+
+    <style name="AppBaseWhiteTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="presentationScreen">@style/Presentation.White.Screen</item>
+        <item name="presentationTextH1">@style/Presentation.White.Text.H1</item>
+        <item name="presentationTextH2">@style/Presentation.White.Text.H2</item>
+        <item name="presentationTextLI">@style/Presentation.White.Text.LI</item>
+        <item name="presentationTextLIBurette">@style/Presentation.White.Text.LI.Burette</item>
+        <item name="presentationTextLIText">@style/Presentation.White.Text.LI.Text</item>
+        <item name="presentationTextLI2">@style/Presentation.White.Text.LI2</item>
+        <item name="presentationTextLI2Burette">@style/Presentation.White.Text.LI2.Burette</item>
+        <item name="presentationTextLI2Text">@style/Presentation.White.Text.LI2.Text</item>
+        <item name="presentationTextLI3">@style/Presentation.White.Text.LI3</item>
+        <item name="presentationTextLI3Burette">@style/Presentation.White.Text.LI3.Burette</item>
+        <item name="presentationTextLI3Text">@style/Presentation.White.Text.LI3.Text</item>
+        <item name="presentationTextP">@style/Presentation.White.Text.P</item>
+        <item name="presentationTextCode">@style/Presentation.White.Text.Code</item>
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
     </style>
 
+    <style name="AppThemeWhite" parent="AppBaseWhiteTheme">
+    </style>
+
     <style name="Presentation" />
 
-    <style name="Presentation.Screen">
+    <style name="Presentation.Black" />
+
+    <style name="Presentation.Black.Screen">
         <item name="android:background">@android:color/black</item>
         <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
         <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
@@ -18,56 +52,115 @@
         <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
     </style>
 
-    <style name="Presentation.Text">
+    <style name="Presentation.Black.Text">
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="fontName">@string/font_name_default</item>
     </style>
-    <style name="Presentation.Text.H1">
+    <style name="Presentation.Black.Text.H1">
         <item name="android:textSize">@dimen/text_size_h1</item>
     </style>
-    <style name="Presentation.Text.H2">
+    <style name="Presentation.Black.Text.H2">
         <item name="android:textSize">@dimen/text_size_h2</item>
     </style>
 
-    <style name="Presentation.Text.LI">
+    <style name="Presentation.Black.Text.LI">
         <item name="android:layout_marginLeft">@dimen/margin_left_li</item>
     </style>
-    <style name="Presentation.Text.LI.Burette">
+    <style name="Presentation.Black.Text.LI.Burette">
         <item name="android:textSize">@dimen/text_size_li_burette</item>
     </style>
-    <style name="Presentation.Text.LI.Text">
+    <style name="Presentation.Black.Text.LI.Text">
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:textSize">@dimen/text_size_li</item>
     </style>
 
-    <style name="Presentation.Text.LI2">
+    <style name="Presentation.Black.Text.LI2">
         <item name="android:layout_marginLeft">@dimen/margin_left_li2</item>
     </style>
-    <style name="Presentation.Text.LI2.Burette">
+    <style name="Presentation.Black.Text.LI2.Burette">
         <item name="android:textSize">@dimen/text_size_li2_burette</item>
     </style>
-    <style name="Presentation.Text.LI2.Text">
+    <style name="Presentation.Black.Text.LI2.Text">
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:textSize">@dimen/text_size_li2</item>
     </style>
 
-    <style name="Presentation.Text.LI3">
+    <style name="Presentation.Black.Text.LI3">
         <item name="android:layout_marginLeft">@dimen/margin_left_li3</item>
     </style>
-    <style name="Presentation.Text.LI3.Burette">
+    <style name="Presentation.Black.Text.LI3.Burette">
         <item name="android:textSize">@dimen/text_size_li3_burette</item>
     </style>
-    <style name="Presentation.Text.LI3.Text">
+    <style name="Presentation.Black.Text.LI3.Text">
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:textSize">@dimen/text_size_li3</item>
     </style>
 
-    <style name="Presentation.Text.P">
+    <style name="Presentation.Black.Text.P">
         <item name="android:textSize">@dimen/text_size_p</item>
     </style>
 
-    <style name="Presentation.Text.Code">
+    <style name="Presentation.Black.Text.Code">
+        <item name="android:textSize">@dimen/text_size_code</item>
+        <item name="fontName">SourceCodePro-Regular.ttf</item>
+    </style>
+
+    <style name="Presentation.White" />
+
+    <style name="Presentation.White.Screen" parent="Presentation.Black.Screen">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="Presentation.White.Text" parent="Presentation.Black.Text">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Presentation.White.Text.H1">
+        <item name="android:textSize">@dimen/text_size_h1</item>
+    </style>
+    <style name="Presentation.White.Text.H2">
+        <item name="android:textSize">@dimen/text_size_h2</item>
+    </style>
+
+    <style name="Presentation.White.Text.LI">
+        <item name="android:layout_marginLeft">@dimen/margin_left_li</item>
+    </style>
+    <style name="Presentation.White.Text.LI.Burette">
+        <item name="android:textSize">@dimen/text_size_li_burette</item>
+    </style>
+    <style name="Presentation.White.Text.LI.Text">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:textSize">@dimen/text_size_li</item>
+    </style>
+
+    <style name="Presentation.White.Text.LI2">
+        <item name="android:layout_marginLeft">@dimen/margin_left_li2</item>
+    </style>
+    <style name="Presentation.White.Text.LI2.Burette">
+        <item name="android:textSize">@dimen/text_size_li2_burette</item>
+    </style>
+    <style name="Presentation.White.Text.LI2.Text">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:textSize">@dimen/text_size_li2</item>
+    </style>
+
+    <style name="Presentation.White.Text.LI3">
+        <item name="android:layout_marginLeft">@dimen/margin_left_li3</item>
+    </style>
+    <style name="Presentation.White.Text.LI3.Burette">
+        <item name="android:textSize">@dimen/text_size_li3_burette</item>
+    </style>
+    <style name="Presentation.White.Text.LI3.Text">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:textSize">@dimen/text_size_li3</item>
+    </style>
+
+    <style name="Presentation.White.Text.P">
+        <item name="android:textSize">@dimen/text_size_p</item>
+    </style>
+
+    <style name="Presentation.White.Text.Code">
         <item name="android:textSize">@dimen/text_size_code</item>
         <item name="fontName">SourceCodePro-Regular.ttf</item>
     </style>

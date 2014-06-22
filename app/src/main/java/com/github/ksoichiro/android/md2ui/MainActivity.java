@@ -2,9 +2,11 @@ package com.github.ksoichiro.android.md2ui;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -33,6 +35,16 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Theme theme = Theme.BLACK;
+        try {
+            theme = Theme.valueOf(prefs.getString(SettingsActivity.PREF_THEME, "BLACK"));
+        } catch (IllegalArgumentException e) {
+            Log.e("Theme", "Illegal theme: " + prefs.getString(SettingsActivity.PREF_THEME, "BLACK"), e);
+        }
+        setTheme(theme.getThemeResId());
+
         setContentView(R.layout.activity_main);
         mFullscreen = false;
 
@@ -65,6 +77,7 @@ public class MainActivity extends FragmentActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         } else if (id == R.id.action_fullscreen) {
             setFullscreen(true);

@@ -28,6 +28,7 @@
                     android:pathPattern=".*\\.md" />
             </intent-filter>
         </activity>
+        <activity android:name=".SettingsActivity" />
     </application>
 
 </manifest>

@@ -2,7 +2,25 @@
 <resources>
 
     <declare-styleable name="CustomTextView">
-        <attr name="fontName" format="string|reference"/>
+        <attr name="fontName" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="Presentation">
+        <attr name="presentationTheme" format="reference" />
+        <attr name="presentationScreen" format="reference" />
+        <attr name="presentationTextH1" format="reference" />
+        <attr name="presentationTextH2" format="reference" />
+        <attr name="presentationTextLI" format="reference" />
+        <attr name="presentationTextLIBurette" format="reference" />
+        <attr name="presentationTextLIText" format="reference" />
+        <attr name="presentationTextLI2" format="reference" />
+        <attr name="presentationTextLI2Burette" format="reference" />
+        <attr name="presentationTextLI2Text" format="reference" />
+        <attr name="presentationTextLI3" format="reference" />
+        <attr name="presentationTextLI3Burette" format="reference" />
+        <attr name="presentationTextLI3Text" format="reference" />
+        <attr name="presentationTextP" format="reference" />
+        <attr name="presentationTextCode" format="reference" />
     </declare-styleable>
 
 </resources>
