@@ -1,0 +1,24 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="activity_vertical_margin">64dp</dimen>
+
+    <dimen name="text_size_h1">34sp</dimen>
+    <dimen name="text_size_h2">28sp</dimen>
+
+    <dimen name="text_size_li">20sp</dimen>
+    <dimen name="text_size_li_burette">16sp</dimen>
+
+    <dimen name="text_size_li2">18sp</dimen>
+    <dimen name="text_size_li2_burette">14sp</dimen>
+
+    <dimen name="text_size_li3">16sp</dimen>
+    <dimen name="text_size_li3_burette">12sp</dimen>
+
+    <dimen name="text_size_p">20sp</dimen>
+
+    <dimen name="margin_left_li">0dp</dimen>
+    <dimen name="margin_left_li2">32dp</dimen>
+    <dimen name="margin_left_li3">64dp</dimen>
+
+</resources>

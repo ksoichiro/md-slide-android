@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Presentation.Text.LI3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.github.ksoichiro.android.md2ui.CustomTextView
+        style="@style/Presentation.Text.LI3.Burette"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="●"
+        />
+
+    <com.github.ksoichiro.android.md2ui.CustomTextView
+        style="@style/Presentation.Text.LI3.Text"
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List" />
+</LinearLayout>
