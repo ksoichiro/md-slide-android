@@ -2,12 +2,16 @@ package com.github.ksoichiro.android.md2ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PageFragment extends Fragment {
 
@@ -86,11 +90,24 @@ public class PageFragment extends Fragment {
             }
             View layout = inflater.inflate(resId, null);
             TextView tv = (TextView) layout.findViewById(R.id.text);
-            tv.setText(content.content);
+            tv.setText(stripLink(content.content));
             parentContent.addView(layout);
         }
 
         return root;
     }
 
+    // Link is useless for viewing, so strip them.
+    private String stripLink(final String s) {
+        if (TextUtils.isEmpty(s)) {
+            return s;
+        }
+        String result = s;
+        Pattern p = Pattern.compile("\\[([^\\]]*)\\]\\(([^\\)]*)\\)");
+        Matcher m = p.matcher(s);
+        if (m.find()) {
+            result = m.group(1);
+        }
+        return result;
+    }
 }
