@@ -1,7 +1,9 @@
 package com.github.ksoichiro.android.md2ui;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -9,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -26,11 +29,13 @@ public class MainActivity extends FragmentActivity {
     private Uri mUri;
     private List<Page> mPages;
     private ViewPager mPager;
+    private boolean mFullscreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mFullscreen = false;
 
         Intent intent = getIntent();
         mUri = intent.getData();
@@ -62,8 +67,51 @@ public class MainActivity extends FragmentActivity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_fullscreen) {
+            setFullscreen(true);
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mFullscreen) {
+            setFullscreen(false);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private void setFullscreen(final boolean fullscreen) {
+        mFullscreen = fullscreen;
+        if (fullscreen) {
+            ActionBar ab = getActionBar();
+            if (ab != null) {
+                ab.setHomeButtonEnabled(true);
+                ab.setDisplayHomeAsUpEnabled(true);
+                ab.hide();
+            }
+
+            final View decor = getWindow().getDecorView();
+            int visibility = 0;
+            if (Build.VERSION_CODES.JELLY_BEAN <= Build.VERSION.SDK_INT) {
+                visibility |= View.SYSTEM_UI_FLAG_FULLSCREEN;
+            }
+            if (Build.VERSION_CODES.KITKAT <= Build.VERSION.SDK_INT) {
+                visibility |= View.SYSTEM_UI_FLAG_IMMERSIVE;
+            }
+            decor.setSystemUiVisibility(visibility);
+        } else {
+            final View decor = getWindow().getDecorView();
+            if (Build.VERSION_CODES.JELLY_BEAN <= Build.VERSION.SDK_INT) {
+                decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            }
+            ActionBar ab = getActionBar();
+            if (ab != null) {
+                ab.show();
+            }
+        }
     }
 
     private void parse() {
