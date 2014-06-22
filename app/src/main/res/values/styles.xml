@@ -67,4 +67,9 @@
         <item name="android:textSize">@dimen/text_size_p</item>
     </style>
 
+    <style name="Presentation.Text.Code">
+        <item name="android:textSize">@dimen/text_size_code</item>
+        <item name="fontName">SourceCodePro-Regular.ttf</item>
+    </style>
+
 </resources>

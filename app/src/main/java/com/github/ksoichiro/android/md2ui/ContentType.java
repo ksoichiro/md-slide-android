@@ -6,5 +6,6 @@ public enum ContentType {
     LI,
     LI2,
     LI3,
-    P;
+    P,
+    CODE;
 }
