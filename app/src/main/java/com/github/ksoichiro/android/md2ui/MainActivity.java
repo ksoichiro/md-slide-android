@@ -1,18 +1,14 @@
 package com.github.ksoichiro.android.md2ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -25,30 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
     private Uri mUri;
     private List<Page> mPages;
-    private int mCurrentPage;
-
-    public static class Page {
-        public List<Content> contents;
-        public Page() {
-            contents = new ArrayList<Content>();
-        }
-    }
-    public static class Content {
-        public ContentType contentType;
-        public String content;
-    }
-    public static enum ContentType {
-        H1,
-        H2,
-        LI,
-        LI2,
-        LI3,
-        P;
-    }
+    private ViewPager mPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +41,10 @@ public class MainActivity extends Activity {
         }
         parse();
 
-        layoutPage(mCurrentPage);
+        mPager = (ViewPager) findViewById(R.id.pager);
+        PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
+        adapter.setPages(mPages);
+        mPager.setAdapter(adapter);
     }
 
     @Override
@@ -86,17 +66,7 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        if (0 < mCurrentPage) {
-            layoutPage(mCurrentPage - 1);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
     private void parse() {
-        mCurrentPage = 0;
         mPages = new ArrayList<Page>();
 
         List<String> lines = readFile(mUri);
@@ -142,69 +112,6 @@ public class MainActivity extends Activity {
             page.contents.add(content);
         }
         mPages.add(page);
-    }
-
-    private void layoutPage(final int page) {
-        if (page < 0 || mPages == null || mPages.size() <= page) {
-            return;
-        }
-
-        LinearLayout root = (LinearLayout) findViewById(R.id.root);
-        root.removeAllViews();
-
-        root.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                layoutPage(page + 1);
-            }
-        });
-        Page p = mPages.get(page);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View parent;
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        if (p.contents.size() == 1) {
-            parent = inflater.inflate(R.layout.parent_title, null);
-            params.width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        } else {
-            parent = inflater.inflate(R.layout.parent_default, null);
-        }
-        root.addView(parent, params);
-        LinearLayout parentContent = (LinearLayout) findViewById(R.id.parent);
-        if (p.contents.size() == 1) {
-            parentContent.setGravity(Gravity.CENTER);
-        }
-
-        for (Content content : p.contents) {
-            int resId = 0;
-            switch (content.contentType) {
-                case H1:
-                    resId = R.layout.parts_h1;
-                    break;
-                case H2:
-                    resId = R.layout.parts_h2;
-                    break;
-                case LI:
-                    resId = R.layout.parts_li;
-                    break;
-                case LI2:
-                    resId = R.layout.parts_li2;
-                    break;
-                case LI3:
-                    resId = R.layout.parts_li3;
-                    break;
-                case P:
-                    resId = R.layout.parts_p;
-                    break;
-            }
-            View layout = inflater.inflate(resId, null);
-            TextView tv = (TextView) layout.findViewById(R.id.text);
-            tv.setText(content.content);
-            parentContent.addView(layout);
-        }
-
-        mCurrentPage = page;
     }
 
     private List<String> readFile(Uri uri) {
