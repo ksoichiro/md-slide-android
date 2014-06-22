@@ -84,6 +84,9 @@ public class Parser {
                 codes = new StringBuilder();
                 isCode = true;
                 continue;
+            } else if (line.startsWith("![")) {
+                // TODO apply image
+                continue;
             } else if (!TextUtils.isEmpty(line)) {
                 // p
                 content.contentType = ContentType.P;
