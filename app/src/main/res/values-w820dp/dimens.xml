@@ -2,5 +2,29 @@
     <!-- Example customization of dimensions originally defined in res/values/dimens.xml
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
-    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="activity_horizontal_margin">128dp</dimen>
+
+    <dimen name="text_size_h1">46sp</dimen>
+    <dimen name="text_size_h2">40sp</dimen>
+    <dimen name="text_size_h3">34sp</dimen>
+
+    <dimen name="text_size_li">28sp</dimen>
+    <dimen name="text_size_li_burette">24sp</dimen>
+
+    <dimen name="text_size_li2">24sp</dimen>
+    <dimen name="text_size_li2_burette">20sp</dimen>
+
+    <dimen name="text_size_li3">20sp</dimen>
+    <dimen name="text_size_li3_burette">16sp</dimen>
+
+    <dimen name="text_size_p">28sp</dimen>
+
+    <dimen name="text_size_code">28sp</dimen>
+
+    <dimen name="margin_left_li">0dp</dimen>
+    <dimen name="margin_left_li2">64dp</dimen>
+    <dimen name="margin_left_li3">128dp</dimen>
+
+    <dimen name="padding_code">16dp</dimen>
+
 </resources>
