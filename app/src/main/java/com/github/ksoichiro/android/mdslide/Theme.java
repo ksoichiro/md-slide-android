@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.md2ui;
+package com.github.ksoichiro.android.mdslide;
 
 public enum Theme {
     BLACK(R.style.AppTheme),

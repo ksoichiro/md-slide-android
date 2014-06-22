@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.md2ui;
+package com.github.ksoichiro.android.mdslide;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

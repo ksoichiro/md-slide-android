@@ -1,9 +1,8 @@
-package com.github.ksoichiro.android.md2ui;
+package com.github.ksoichiro.android.mdslide;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;

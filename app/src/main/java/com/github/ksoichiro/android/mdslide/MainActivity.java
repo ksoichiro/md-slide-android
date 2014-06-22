@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.md2ui;
+package com.github.ksoichiro.android.mdslide;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -9,20 +9,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.List;
 
 

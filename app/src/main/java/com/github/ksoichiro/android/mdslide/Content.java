@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.md2ui;
+package com.github.ksoichiro.android.mdslide;
 
 import java.io.Serializable;
 

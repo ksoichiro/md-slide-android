@@ -1,8 +1,7 @@
-package com.github.ksoichiro.android.md2ui;
+package com.github.ksoichiro.android.mdslide;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.app.Fragment;
 import android.preference.PreferenceFragment;
 
 public class SettingsActivity extends PreferenceActivity {

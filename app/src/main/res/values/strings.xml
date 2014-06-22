@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">md2ui</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">md-slide</string>
     <string name="action_fullscreen">Full screen</string>
     <string name="action_settings">Settings</string>
     <string name="font_name_default">migu-1c-regular.ttf</string>
