@@ -108,6 +108,8 @@
 
     <style name="Presentation.Black.Text.Code">
         <item name="android:textSize">@dimen/text_size_code</item>
+        <item name="android:background">@drawable/code_frame_black</item>
+        <item name="android:padding">@dimen/padding_code</item>
         <item name="fontName">SourceCodePro-Regular.ttf</item>
     </style>
 
@@ -170,6 +172,8 @@
 
     <style name="Presentation.White.Text.Code">
         <item name="android:textSize">@dimen/text_size_code</item>
+        <item name="android:background">@drawable/code_frame_white</item>
+        <item name="android:padding">@dimen/padding_code</item>
         <item name="fontName">SourceCodePro-Regular.ttf</item>
     </style>
 

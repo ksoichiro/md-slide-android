@@ -24,4 +24,6 @@
     <dimen name="margin_left_li2">32dp</dimen>
     <dimen name="margin_left_li3">64dp</dimen>
 
+    <dimen name="padding_code">8dp</dimen>
+
 </resources>
