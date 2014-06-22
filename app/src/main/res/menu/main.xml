@@ -5,6 +5,14 @@
         android:title="@string/action_fullscreen"
         android:orderInCategory="100"
         android:showAsAction="ifRoom" />
+    <item android:id="@+id/action_first_page"
+        android:title="@string/action_first_page"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/action_last_page"
+        android:title="@string/action_last_page"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom" />
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"

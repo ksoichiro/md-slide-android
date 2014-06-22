@@ -68,12 +68,19 @@ public class MainActivity extends FragmentActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            startActivity(new Intent(this, SettingsActivity.class));
-            return true;
-        } else if (id == R.id.action_fullscreen) {
-            setFullscreen(true);
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            case R.id.action_fullscreen:
+                setFullscreen(true);
+                return true;
+            case R.id.action_first_page:
+                mPager.setCurrentItem(0);
+                return true;
+            case R.id.action_last_page:
+                mPager.setCurrentItem(mPager.getAdapter().getCount() - 1);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
