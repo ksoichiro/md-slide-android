@@ -1,6 +1,11 @@
-# md2ui for Android
+# md-slide for Android
 
-Viewer for presentation using Markdown.
+Markdown viewer for presentation with Android device.
+
+## Usage
+
+Currently, only the `Intent` can be used.  
+Share `.md` file from file explorer apps, and choose `md-slide`.
 
 ## License
 
