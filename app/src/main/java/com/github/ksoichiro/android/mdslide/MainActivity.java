@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.util.List;
@@ -101,6 +102,7 @@ public class MainActivity extends FragmentActivity {
 
     private void setFullscreen(final boolean fullscreen) {
         mFullscreen = fullscreen;
+        findViewById(android.R.id.content).setKeepScreenOn(mFullscreen);
         if (fullscreen) {
             ActionBar ab = getActionBar();
             if (ab != null) {
