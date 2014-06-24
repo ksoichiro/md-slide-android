@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -49,16 +50,24 @@ public class PageFragment extends Fragment {
             return null;
         }
 
-        LinearLayout root = (LinearLayout) view.findViewById(R.id.root);
+        RelativeLayout root = (RelativeLayout) view.findViewById(R.id.root);
         root.removeAllViews();
+        TextView pn = (TextView) inflater.inflate(R.layout.page_number, null);
+        pn.setText(String.valueOf(p.number));
+        RelativeLayout.LayoutParams pnParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        pnParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        pnParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        root.addView(pn, pnParams);
 
         View parent;
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT);
         if (p.contents.size() == 1) {
             parent = inflater.inflate(R.layout.parent_title, null);
-            params.width = LinearLayout.LayoutParams.WRAP_CONTENT;
+            params.width = RelativeLayout.LayoutParams.WRAP_CONTENT;
         } else if (p.hasImage()) {
             parent = inflater.inflate(R.layout.parent_2row, null);
         } else {

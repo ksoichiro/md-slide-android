@@ -21,6 +21,8 @@
 
     <dimen name="text_size_code">28sp</dimen>
 
+    <dimen name="text_size_page_number">20sp</dimen>
+
     <dimen name="margin_left_li">0dp</dimen>
     <dimen name="margin_left_li2">64dp</dimen>
     <dimen name="margin_left_li3">128dp</dimen>

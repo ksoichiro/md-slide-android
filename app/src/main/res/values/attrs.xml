@@ -23,6 +23,7 @@
         <attr name="presentationTextP" format="reference" />
         <attr name="presentationTextCode" format="reference" />
         <attr name="presentationImg" format="reference" />
+        <attr name="presentationTextPageNumber" format="reference" />
     </declare-styleable>
 
 </resources>
