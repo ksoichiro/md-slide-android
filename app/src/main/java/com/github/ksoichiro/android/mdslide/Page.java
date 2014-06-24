@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Page implements Serializable {
 
+    public int number;
     public List<Content> contents;
     public Page() {
         contents = new ArrayList<Content>();

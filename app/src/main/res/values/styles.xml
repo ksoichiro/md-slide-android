@@ -17,6 +17,7 @@
         <item name="presentationTextP">@style/Presentation.Black.Text.P</item>
         <item name="presentationTextCode">@style/Presentation.Black.Text.Code</item>
         <item name="presentationImg">@style/Presentation.Black.Img</item>
+        <item name="presentationTextPageNumber">@style/Presentation.Black.Text.PageNumber</item>
     </style>
 
     <style name="AppBaseWhiteTheme" parent="android:Theme.Holo.Light.DarkActionBar">
@@ -36,6 +37,7 @@
         <item name="presentationTextP">@style/Presentation.White.Text.P</item>
         <item name="presentationTextCode">@style/Presentation.White.Text.Code</item>
         <item name="presentationImg">@style/Presentation.White.Img</item>
+        <item name="presentationTextPageNumber">@style/Presentation.White.Text.PageNumber</item>
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
@@ -115,6 +117,10 @@
         <item name="fontName">SourceCodePro-Regular.ttf</item>
     </style>
 
+    <style name="Presentation.Black.Text.PageNumber">
+        <item name="android:textSize">@dimen/text_size_page_number</item>
+    </style>
+
     <style name="Presentation.Black.Img" />
 
     <style name="Presentation.White" />
@@ -179,6 +185,10 @@
         <item name="android:background">@drawable/code_frame_white</item>
         <item name="android:padding">@dimen/padding_code</item>
         <item name="fontName">SourceCodePro-Regular.ttf</item>
+    </style>
+
+    <style name="Presentation.White.Text.PageNumber">
+        <item name="android:textSize">@dimen/text_size_page_number</item>
     </style>
 
     <style name="Presentation.White.Img" />

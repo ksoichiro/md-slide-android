@@ -31,11 +31,14 @@ public class Parser {
         Page page = new Page();
         boolean isCode = false;
         StringBuilder codes = null;
+        int pageNumber = 1;
         for (String line : lines) {
             Log.i("", "line: " + line);
             if (line.startsWith("---")) {
                 // New page
+                page.number = pageNumber;
                 mPages.add(page);
+                pageNumber++;
                 page = new Page();
                 continue;
             }
@@ -119,6 +122,7 @@ public class Parser {
             }
             page.contents.add(content);
         }
+        page.number = pageNumber;
         mPages.add(page);
 
         return mPages;
