@@ -1,4 +1,5 @@
 # md-slide for Android
+[![Build Status](https://travis-ci.org/ksoichiro/md-slide-android.svg?branch=master)](https://travis-ci.org/ksoichiro/md-slide-android)
 
 Markdown viewer for presentation with Android device.
 
