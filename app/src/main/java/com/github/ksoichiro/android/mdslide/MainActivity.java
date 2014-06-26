@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
+import com.github.ksoichiro.android.mdslide.widget.transition.PopPageTransformer;
 import com.github.ksoichiro.android.mdslide.widget.transition.PushPageTransformer;
 
 import java.util.List;
@@ -74,6 +75,10 @@ public class MainActivity extends FragmentActivity {
             case PUSH:
                 findViewById(R.id.background).setBackgroundColor(Color.BLACK);
                 mPager.setPageTransformer(false, new PushPageTransformer());
+                break;
+            case POP:
+                findViewById(R.id.background).setBackgroundColor(Color.BLACK);
+                mPager.setPageTransformer(true, new PopPageTransformer());
                 break;
             case DEFAULT:
             default:
