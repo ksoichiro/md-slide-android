@@ -1,6 +1,7 @@
 <resources>
 
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="presentationBackground">@style/Presentation.Black.Background</item>
         <item name="presentationScreen">@style/Presentation.Black.Screen</item>
         <item name="presentationTextH1">@style/Presentation.Black.Text.H1</item>
         <item name="presentationTextH2">@style/Presentation.Black.Text.H2</item>
@@ -21,6 +22,7 @@
     </style>
 
     <style name="AppBaseWhiteTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="presentationBackground">@style/Presentation.White.Background</item>
         <item name="presentationScreen">@style/Presentation.White.Screen</item>
         <item name="presentationTextH1">@style/Presentation.White.Text.H1</item>
         <item name="presentationTextH2">@style/Presentation.White.Text.H2</item>
@@ -49,6 +51,10 @@
     <style name="Presentation" />
 
     <style name="Presentation.Black" />
+
+    <style name="Presentation.Black.Background">
+        <item name="android:background">@android:color/black</item>
+    </style>
 
     <style name="Presentation.Black.Screen">
         <item name="android:background">@android:color/black</item>
@@ -124,6 +130,10 @@
     <style name="Presentation.Black.Img" />
 
     <style name="Presentation.White" />
+
+    <style name="Presentation.White.Background">
+        <item name="android:background">@android:color/white</item>
+    </style>
 
     <style name="Presentation.White.Screen" parent="Presentation.Black.Screen">
         <item name="android:background">@android:color/white</item>

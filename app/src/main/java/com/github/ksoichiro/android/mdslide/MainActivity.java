@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
+
 import java.util.List;
 
 
@@ -56,6 +58,21 @@ public class MainActivity extends FragmentActivity {
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
         adapter.setPages(mPages);
         mPager.setAdapter(adapter);
+
+        Transition transition = Transition.DEFAULT;
+        try {
+            transition = Transition.valueOf(prefs.getString(SettingsActivity.PREF_TRANSITION, "DEFAULT"));
+        } catch (IllegalArgumentException e) {
+            Log.e("Theme", "Illegal transition: " + prefs.getString(SettingsActivity.PREF_TRANSITION, "DEFAULT"), e);
+        }
+        switch (transition) {
+            case FADE:
+                mPager.setPageTransformer(false, new FadePageTransformer());
+                break;
+            case DEFAULT:
+            default:
+                break;
+        }
     }
 
     @Override
