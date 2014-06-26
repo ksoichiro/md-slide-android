@@ -7,6 +7,11 @@
             android:key="theme"
             android:entries="@array/theme_entries"
             android:entryValues="@array/theme_values" />
+
+        <ListPreference android:title="Transition"
+            android:key="transition"
+            android:entries="@array/transition_entries"
+            android:entryValues="@array/transition_values" />
     </PreferenceCategory>
 
 </PreferenceScreen>

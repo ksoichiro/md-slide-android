@@ -7,6 +7,7 @@
 
     <declare-styleable name="Presentation">
         <attr name="presentationTheme" format="reference" />
+        <attr name="presentationBackground" format="reference" />
         <attr name="presentationScreen" format="reference" />
         <attr name="presentationTextH1" format="reference" />
         <attr name="presentationTextH2" format="reference" />

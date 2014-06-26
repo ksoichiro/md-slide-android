@@ -3,6 +3,7 @@ package com.github.ksoichiro.android.mdslide;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
+import com.github.ksoichiro.android.mdslide.widget.transition.PopPageTransformer;
+import com.github.ksoichiro.android.mdslide.widget.transition.PushPageTransformer;
 
 import java.util.List;
 
@@ -56,6 +61,29 @@ public class MainActivity extends FragmentActivity {
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
         adapter.setPages(mPages);
         mPager.setAdapter(adapter);
+
+        Transition transition = Transition.DEFAULT;
+        try {
+            transition = Transition.valueOf(prefs.getString(SettingsActivity.PREF_TRANSITION, "DEFAULT"));
+        } catch (IllegalArgumentException e) {
+            Log.e("Theme", "Illegal transition: " + prefs.getString(SettingsActivity.PREF_TRANSITION, "DEFAULT"), e);
+        }
+        switch (transition) {
+            case FADE:
+                mPager.setPageTransformer(false, new FadePageTransformer());
+                break;
+            case PUSH:
+                findViewById(R.id.background).setBackgroundColor(Color.BLACK);
+                mPager.setPageTransformer(false, new PushPageTransformer());
+                break;
+            case POP:
+                findViewById(R.id.background).setBackgroundColor(Color.BLACK);
+                mPager.setPageTransformer(true, new PopPageTransformer());
+                break;
+            case DEFAULT:
+            default:
+                break;
+        }
     }
 
     @Override

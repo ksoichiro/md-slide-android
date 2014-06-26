@@ -7,6 +7,7 @@ import android.preference.PreferenceFragment;
 public class SettingsActivity extends PreferenceActivity {
 
     public static final String PREF_THEME = "theme";
+    public static final String PREF_TRANSITION = "transition";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
