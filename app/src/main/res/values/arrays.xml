@@ -13,10 +13,12 @@
     <string-array name="transition_entries">
         <item>Default</item>
         <item>Fade</item>
+        <item>Push</item>
     </string-array>
 
     <string-array name="transition_values">
         <item>DEFAULT</item>
         <item>FADE</item>
+        <item>PUSH</item>
     </string-array>
 </resources>

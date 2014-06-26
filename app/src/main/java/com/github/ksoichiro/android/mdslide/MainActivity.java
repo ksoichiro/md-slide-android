@@ -3,6 +3,7 @@ package com.github.ksoichiro.android.mdslide;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
+import com.github.ksoichiro.android.mdslide.widget.transition.PushPageTransformer;
 
 import java.util.List;
 
@@ -68,6 +70,10 @@ public class MainActivity extends FragmentActivity {
         switch (transition) {
             case FADE:
                 mPager.setPageTransformer(false, new FadePageTransformer());
+                break;
+            case PUSH:
+                findViewById(R.id.background).setBackgroundColor(Color.BLACK);
+                mPager.setPageTransformer(false, new PushPageTransformer());
                 break;
             case DEFAULT:
             default:
