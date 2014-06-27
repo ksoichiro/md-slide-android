@@ -3,7 +3,6 @@ package com.github.ksoichiro.android.mdslide;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -31,7 +30,6 @@ public class PageFragment extends Fragment {
         args.putSerializable(ARG_PAGE, page);
         PageFragment fragment = new PageFragment();
         fragment.setArguments(args);
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
         return fragment;
     }
 
