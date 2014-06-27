@@ -3,6 +3,7 @@ package com.github.ksoichiro.android.mdslide;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -21,11 +22,14 @@ import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransforme
 import com.github.ksoichiro.android.mdslide.widget.transition.PopPageTransformer;
 import com.github.ksoichiro.android.mdslide.widget.transition.PushPageTransformer;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
 public class MainActivity extends FragmentActivity {
 
+    private InputStream mIn;
     private Uri mUri;
     private List<Page> mPages;
     private ViewPager mPager;
@@ -50,12 +54,16 @@ public class MainActivity extends FragmentActivity {
         Intent intent = getIntent();
         Uri uri = intent.getData();
         if (uri == null) {
-            Toast.makeText(this, "Invalid URL", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
+            try {
+                mIn = getResources().getAssets().open("slides/default.md");
+                mPages = new Parser(mIn).parse();
+            } catch (IOException e) {
+                return;
+            }
+        } else {
+            mUri = uri;
+            mPages = new Parser(uri).parse();
         }
-        mUri = uri;
-        mPages = new Parser(uri).parse();
 
         mPager = (ViewPager) findViewById(R.id.pager);
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
