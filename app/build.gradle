@@ -1,12 +1,5 @@
 apply plugin: 'android'
 
-repositories {
-    mavenCentral()
-    maven {
-        url "$System.env.ANDROID_HOME/extras/android/m2repository"
-    }
-}
-
 android {
     compileSdkVersion 19
     buildToolsVersion "19.1.0"
