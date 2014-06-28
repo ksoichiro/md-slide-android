@@ -120,7 +120,8 @@
         <item name="android:textSize">@dimen/text_size_code</item>
         <item name="android:background">@drawable/code_frame_black</item>
         <item name="android:padding">@dimen/padding_code</item>
-        <item name="fontName">SourceCodePro-Regular.ttf</item>
+        <item name="fontName">@string/font_name_code_default</item>
+        <item name="sourceCode">true</item>
     </style>
 
     <style name="Presentation.Black.Text.PageNumber">
@@ -194,7 +195,8 @@
         <item name="android:textSize">@dimen/text_size_code</item>
         <item name="android:background">@drawable/code_frame_white</item>
         <item name="android:padding">@dimen/padding_code</item>
-        <item name="fontName">SourceCodePro-Regular.ttf</item>
+        <item name="fontName">@string/font_name_code_default</item>
+        <item name="sourceCode">true</item>
     </style>
 
     <style name="Presentation.White.Text.PageNumber">

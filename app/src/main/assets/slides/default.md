@@ -17,3 +17,15 @@ Swipe to left to see description
 
 * Open `.md` file with external app
 * Open `.md` file from this app (not available for now..)
+
+---
+
+## Source code
+
+* You can include source code:
+
+```java
+public static void main(String[] args) {
+    System.out.println("Hello, world!");
+}
+```

@@ -39,7 +39,12 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        updatedDefaults();
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        CustomTextView.overrideFont = prefs.getString(SettingsActivity.PREF_FONT, "");
+        CustomTextView.overrideFontForCodes = prefs.getString(SettingsActivity.PREF_FONT_FOR_CODES, "");
+
         Theme theme = Theme.BLACK;
         try {
             theme = Theme.valueOf(prefs.getString(SettingsActivity.PREF_THEME, "BLACK"));
@@ -164,6 +169,24 @@ public class MainActivity extends FragmentActivity {
                 ab.show();
             }
         }
+    }
+
+    private void updatedDefaults() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        if (!prefs.contains(SettingsActivity.PREF_THEME)) {
+            editor.putString(SettingsActivity.PREF_THEME, getString(R.string.theme_white));
+        }
+        if (!prefs.contains(SettingsActivity.PREF_TRANSITION)) {
+            editor.putString(SettingsActivity.PREF_TRANSITION, getString(R.string.transition_push));
+        }
+        if (!prefs.contains(SettingsActivity.PREF_FONT)) {
+            editor.putString(SettingsActivity.PREF_FONT, getString(R.string.font_name_roboto_black));
+        }
+        if (!prefs.contains(SettingsActivity.PREF_FONT_FOR_CODES)) {
+            editor.putString(SettingsActivity.PREF_FONT_FOR_CODES, getString(R.string.font_name_source_code_pro_regular));
+        }
+        editor.commit();
     }
 
     private void reload() {

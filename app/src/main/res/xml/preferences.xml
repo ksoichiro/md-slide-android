@@ -12,6 +12,16 @@
             android:key="transition"
             android:entries="@array/transition_entries"
             android:entryValues="@array/transition_values" />
+
+        <ListPreference android:title="Font"
+            android:key="font"
+            android:entries="@array/font_entries"
+            android:entryValues="@array/font_values" />
+
+        <ListPreference android:title="Font for codes"
+            android:key="fontForCodes"
+            android:entries="@array/font_entries"
+            android:entryValues="@array/font_values" />
     </PreferenceCategory>
 
 </PreferenceScreen>

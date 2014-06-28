@@ -8,6 +8,8 @@ public class SettingsActivity extends PreferenceActivity {
 
     public static final String PREF_THEME = "theme";
     public static final String PREF_TRANSITION = "transition";
+    public static final String PREF_FONT = "font";
+    public static final String PREF_FONT_FOR_CODES = "fontForCodes";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

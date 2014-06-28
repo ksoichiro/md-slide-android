@@ -6,8 +6,8 @@
     </string-array>
 
     <string-array name="theme_values">
-        <item>BLACK</item>
-        <item>WHITE</item>
+        <item>@string/theme_black</item>
+        <item>@string/theme_white</item>
     </string-array>
 
     <string-array name="transition_entries">
@@ -18,9 +18,100 @@
     </string-array>
 
     <string-array name="transition_values">
-        <item>DEFAULT</item>
-        <item>FADE</item>
-        <item>PUSH</item>
-        <item>POP</item>
+        <item>@string/transition_default</item>
+        <item>@string/transition_fade</item>
+        <item>@string/transition_push</item>
+        <item>@string/transition_pop</item>
     </string-array>
+
+    <string-array name="font_entries">
+        <item>Default</item>
+        <item>Migu 1C Regular</item>
+        <item>Roboto Black</item>
+        <item>Roboto Black italic</item>
+        <item>Roboto Bold</item>
+        <item>Roboto Bold Italic</item>
+        <item>Roboto Italic</item>
+        <item>Roboto Light</item>
+        <item>Roboto Light Italic</item>
+        <item>Roboto Medium</item>
+        <item>Roboto Medium Italic</item>
+        <item>Roboto Regular</item>
+        <item>Roboto Thin</item>
+        <item>Roboto Thin Italic</item>
+        <item>Roboto Condensed Bold</item>
+        <item>Roboto Condensed Bold Italic</item>
+        <item>Roboto Condensed Italic</item>
+        <item>Roboto Condensed Light</item>
+        <item>Roboto Condensed Light Italic</item>
+        <item>Roboto Condensed Regular</item>
+        <item>Source Code Pro Black</item>
+        <item>Source Code Pro Bold</item>
+        <item>Source Code Pro Extra Light</item>
+        <item>Source Code Pro Light</item>
+        <item>Source Code Pro Medium</item>
+        <item>Source Code Pro Regular</item>
+        <item>Source Code Pro Semi Bold</item>
+        <item>Source Sans Pro Black</item>
+        <item>Source Sans Pro Black Italic</item>
+        <item>Source Sans Pro Bold</item>
+        <item>Source Sans Pro Bold Italic</item>
+        <item>Source Sans Pro Extra Light</item>
+        <item>Source Sans Pro Extra Light Italic</item>
+        <item>Source Sans Pro It</item>
+        <item>Source Sans Pro Light</item>
+        <item>Source Sans Pro Light Italic</item>
+        <item>Source Sans Pro Regular</item>
+        <item>Source Sans Pro Semibold</item>
+        <item>Source Sans Pro Semibold Italic</item>
+        <item>Source Serif Pro Bold</item>
+        <item>Source Serif Pro Regular</item>
+        <item>Source Serif Pro Semibold</item>
+    </string-array>
+
+    <string-array name="font_values">
+        <item />
+        <item>@string/font_name_migu_1c_regular</item>
+        <item>@string/font_name_roboto_black</item>
+        <item>@string/font_name_roboto_black_italic</item>
+        <item>@string/font_name_roboto_bold</item>
+        <item>@string/font_name_roboto_bold_italic</item>
+        <item>@string/font_name_roboto_italic</item>
+        <item>@string/font_name_roboto_light</item>
+        <item>@string/font_name_roboto_light_italic</item>
+        <item>@string/font_name_roboto_medium</item>
+        <item>@string/font_name_roboto_medium_italic</item>
+        <item>@string/font_name_roboto_regular</item>
+        <item>@string/font_name_roboto_thin</item>
+        <item>@string/font_name_roboto_thin_italic</item>
+        <item>@string/font_name_roboto_condensed_bold</item>
+        <item>@string/font_name_roboto_condensed_bold_italic</item>
+        <item>@string/font_name_roboto_condensed_italic</item>
+        <item>@string/font_name_roboto_condensed_light</item>
+        <item>@string/font_name_roboto_condensed_light_italic</item>
+        <item>@string/font_name_roboto_condensed_regular</item>
+        <item>@string/font_name_source_code_pro_black</item>
+        <item>@string/font_name_source_code_pro_bold</item>
+        <item>@string/font_name_source_code_pro_extra_light</item>
+        <item>@string/font_name_source_code_pro_light</item>
+        <item>@string/font_name_source_code_pro_medium</item>
+        <item>@string/font_name_source_code_pro_regular</item>
+        <item>@string/font_name_source_code_pro_semi_bold</item>
+        <item>@string/font_name_source_sans_pro_black</item>
+        <item>@string/font_name_source_sans_pro_black_it</item>
+        <item>@string/font_name_source_sans_pro_bold</item>
+        <item>@string/font_name_source_sans_pro_bold_it</item>
+        <item>@string/font_name_source_sans_pro_extra_light</item>
+        <item>@string/font_name_source_sans_pro_extra_light_it</item>
+        <item>@string/font_name_source_sans_pro_it</item>
+        <item>@string/font_name_source_sans_pro_light</item>
+        <item>@string/font_name_source_sans_pro_light_it</item>
+        <item>@string/font_name_source_sans_pro_regular</item>
+        <item>@string/font_name_source_sans_pro_semibold</item>
+        <item>@string/font_name_source_sans_pro_semibold_it</item>
+        <item>@string/font_name_source_serif_pro_bold</item>
+        <item>@string/font_name_source_serif_pro_regular</item>
+        <item>@string/font_name_source_serif_pro_semibold</item>
+    </string-array>
+
 </resources>

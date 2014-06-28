@@ -3,6 +3,7 @@
 
     <declare-styleable name="CustomTextView">
         <attr name="fontName" format="string|reference" />
+        <attr name="sourceCode" format="boolean|reference" />
     </declare-styleable>
 
     <declare-styleable name="Presentation">
