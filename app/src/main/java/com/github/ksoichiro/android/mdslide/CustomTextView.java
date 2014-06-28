@@ -3,6 +3,7 @@ package com.github.ksoichiro.android.mdslide;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -36,7 +37,7 @@ public class CustomTextView extends TextView {
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.CustomTextView, defStyle, 0);
             String fontName = a.getString(R.styleable.CustomTextView_fontName);
-            if (fontName != null) {
+            if (!TextUtils.isEmpty(fontName)) {
                 if (typeFaces.containsKey(fontName)) {
                     setTypeface(typeFaces.get(fontName));
                 } else {
