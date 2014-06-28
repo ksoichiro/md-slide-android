@@ -122,7 +122,11 @@ public class PageFragment extends Fragment {
             TextView tv = (TextView) layout.findViewById(R.id.text);
             if (tv != null) {
                 tv.setText(stripLink(content.content));
-                parentContent.addView(layout);
+                if (p.hasImageOnLeft()) {
+                    parentContentRight.addView(layout);
+                } else {
+                    parentContent.addView(layout);
+                }
             } else {
                 ImageView img = (ImageView) layout.findViewById(R.id.img);
                 if (img != null) {
@@ -130,7 +134,11 @@ public class PageFragment extends Fragment {
                     LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,
                             LinearLayout.LayoutParams.MATCH_PARENT);
-                    parentContentRight.addView(layout, params2);
+                    if (p.hasImageOnLeft()) {
+                        parentContent.addView(layout, params2);
+                    } else {
+                        parentContentRight.addView(layout, params2);
+                    }
                 }
             }
         }

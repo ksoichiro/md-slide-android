@@ -25,4 +25,18 @@ public class Page implements Serializable {
         }
         return contains;
     }
+
+    public boolean hasImageOnLeft() {
+        if (contents == null) {
+            return false;
+        }
+        boolean onLeft = false;
+        for (Content c : contents) {
+            if (c.contentType == ContentType.IMG) {
+                onLeft = c.attributes.containsKey("left");
+                break;
+            }
+        }
+        return onLeft;
+    }
 }
