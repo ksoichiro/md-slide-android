@@ -30,6 +30,7 @@ import java.util.List;
 public class MainActivity extends FragmentActivity {
 
     public static final String EXTRA_INITIAL_PAGE = "initialPage";
+    private static final int REQUEST_CODE_SETTINGS = 1;
     private InputStream mIn;
     private int mCurrentPage;
     private Uri mUri;
@@ -118,6 +119,16 @@ public class MainActivity extends FragmentActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_SETTINGS) {
+            if (resultCode == RESULT_OK) {
+                reload();
+            }
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -125,7 +136,7 @@ public class MainActivity extends FragmentActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
+                showSettings();
                 return true;
             case R.id.action_fullscreen:
                 setFullscreen(true);
@@ -214,5 +225,9 @@ public class MainActivity extends FragmentActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(EXTRA_INITIAL_PAGE, mPager.getCurrentItem());
         startActivity(intent);
+    }
+
+    private void showSettings() {
+        startActivityForResult(new Intent(this, SettingsActivity.class), REQUEST_CODE_SETTINGS);
     }
 }
