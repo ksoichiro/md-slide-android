@@ -1,13 +1,16 @@
-language: android
-android:
-  components:
-    - tools
-    - build-tools-19.1.0
-    - android-19
-    - extra-android-support
-    - extra-android-m2repository
-  licenses:
-    - android-sdk-license-bcbbd656
-    - android-sdk-license-5be876d5
-    - android-sdk-license-598b93a6
-    - android-sdk-preview-license-52d11cd2
+language: java
+jdk: oraclejdk7
+before_install:
+    # Install base Android SDK
+    - sudo apt-get update -qq
+    - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes expect libgd2-xpm ia32-libs ia32-libs-multiarch; fi
+    - wget http://dl.google.com/android/android-sdk_r22.6-linux.tgz
+    - tar xzf android-sdk_r22.6-linux.tgz
+    - export ANDROID_HOME=$PWD/android-sdk-linux
+    - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+
+    # Install required Android components.
+    - ./expect_sdk_update.sh "android update sdk --all --filter tools --no-ui --force"
+    - android list sdk --all --extended
+    - ./expect_sdk_update.sh "android update sdk --all --filter platform-tools,build-tools-19.1.0,android-19,extra-android-support --no-ui --force"
+    - ./expect_sdk_update.sh "android update sdk --all --filter extra-android-m2repository --no-ui --force"
