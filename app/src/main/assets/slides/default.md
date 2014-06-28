@@ -30,3 +30,11 @@ public static void main(String[] args) {
     System.out.println("Hello, world!");
 }
 ```
+
+---
+
+## Quotation
+
+> Markdown is a text-to-HTML conversion tool for web writers.
+
+-- daringfireball.net
