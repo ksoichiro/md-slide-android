@@ -4,7 +4,7 @@
     <string name="app_name">md-slide</string>
     <string name="action_fullscreen">Full screen</string>
     <string name="action_first_page">First</string>
-    <string name="action_last_page">&gt;&gt;</string>
+    <string name="action_last_page">Last</string>
     <string name="action_reload">Reload</string>
     <string name="action_settings">Settings</string>
 
