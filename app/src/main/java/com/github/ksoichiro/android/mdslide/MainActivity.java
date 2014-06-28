@@ -11,9 +11,11 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
 import com.github.ksoichiro.android.mdslide.widget.transition.PopPageTransformer;
@@ -59,6 +61,17 @@ public class MainActivity extends FragmentActivity {
 
         setContentView(R.layout.activity_main);
         mFullscreen = false;
+
+        ActionBar ab = getActionBar();
+        if (ab != null) {
+            View v = LayoutInflater.from(this).inflate(R.layout.actionbar, null);
+            TextView titleTxtView = (TextView) v.findViewById(R.id.title);
+            titleTxtView.setText(getTitle());
+
+            ab.setDisplayShowTitleEnabled(false);
+            ab.setDisplayShowCustomEnabled(true);
+            ab.setCustomView(v);
+        }
 
         Intent intent = getIntent();
         Uri uri = intent.getData();
