@@ -7,3 +7,5 @@ android:
     - extra-android-m2repository
   licenses:
     - android-sdk-license-bcbbd656
+    - android-sdk-license-598b93a6
+    - android-sdk-preview-license-52d11cd2
