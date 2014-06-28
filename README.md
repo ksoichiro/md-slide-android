@@ -24,11 +24,23 @@ Share `.md` file from file explorer apps, and choose `md-slide`.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-### Fonts
+### License of fonts
+
+#### Miguフォント
+
+    Copyright (C) 2002-2013 M+ FONTS PROJECT
+    Copyright(c) Information-technology Promotion Agency, Japan (IPA), 2003-2011.
+
+    このフォントのライセンスは、
+    IPAフォントのライセンスに準じます。
+    
+    IPAフォントのライセンスは、配布物に含まれる
+    IPA_Font_License_Agreement_v1.0.txt
+    をご覧ください。
 
 #### Roboto
 
-    Copyright Google 2012
+    Font data copyright Google 2012
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -59,6 +71,40 @@ Share `.md` file from file explorer apps, and choose `md-slide`.
 #### Source Code Pro
 
     Copyright 2014 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+    
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+#### amatic
+
+    Copyright (c) 2011 by vernon adams (vern@newtypography.co.uk),
+    with Reserved Font Names "Amatic" "Amatic Bold" and "Amatic Regular"
+    
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+#### ChunkFive
+
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+#### lato
+
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+#### Gasper
+
+    Copyright (c) 2012 by Carlos Alonso (http://www.alonsocosta.com  correo@alonsocosta.com),
+    with Reserved Font Name "Gaspar" "Gaspar Regular" "Gaspar Regular Italic" "Gaspar Bold" "Gaspar Bold Italic" 
+    
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+#### Leckerli One
+
+    Copyright (c) 2011 Gesine Todt  (www.gesine-todt.de), with Reserved
+    Font Names &quot;Leckerli&quot; and &quot;Leckerli One&quot;.
     
     This Font Software is licensed under the SIL Open Font License, Version 1.1.
     This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL

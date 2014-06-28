@@ -16,7 +16,8 @@ Swipe to left to see description
 ## How do I use it?
 
 * Open `.md` file with external app
-* Open `.md` file from this app (not available for now..)
+* Open `.md` file from this app
+    * not available for now..
 
 ---
 

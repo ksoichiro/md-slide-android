@@ -18,7 +18,8 @@
 
     <string name="font_name_default"/>
     <string name="font_name_code_default"/>
-    <string name="font_name_migu_1c_regular">migu-1c-regular.ttf</string>
+    <string name="font_name_migu_1c_bold">migu-1c-20130617/migu-1c-bold.ttf</string>
+    <string name="font_name_migu_1c_regular">migu-1c-20130617/migu-1c-regular.ttf</string>
     <string name="font_name_roboto_black">roboto/Roboto-Black.ttf</string>
     <string name="font_name_roboto_black_italic">roboto/Roboto-BlackItalic.ttf</string>
     <string name="font_name_roboto_bold">roboto/Roboto-Bold.ttf</string>
@@ -59,5 +60,23 @@
     <string name="font_name_source_serif_pro_bold">source-serif-pro/SourceSerifPro-Bold.otf</string>
     <string name="font_name_source_serif_pro_regular">source-serif-pro/SourceSerifPro-Regular.otf</string>
     <string name="font_name_source_serif_pro_semibold">source-serif-pro/SourceSerifPro-Semibold.otf</string>
+    <string name="font_name_amatic_bold">amatic/Amatic-Bold.ttf</string>
+    <string name="font_name_amatic_sc_regular">amatic/AmaticSC-Regular.ttf</string>
+    <string name="font_name_chunk_five">ChunkFive/Chunkfive.otf</string>
+    <string name="font_name_lato_black">lato/Lato-Bla.ttf</string>
+    <string name="font_name_lato_black_italic">lato/Lato-BlaIta.ttf</string>
+    <string name="font_name_lato_bold">lato/Lato-Bol.ttf</string>
+    <string name="font_name_lato_bold_italic">lato/Lato-BolIta.ttf</string>
+    <string name="font_name_lato_hairline">lato/Lato-Hai.ttf</string>
+    <string name="font_name_lato_hairline_italic">lato/Lato-HaiIta.ttf</string>
+    <string name="font_name_lato_light">lato/Lato-Lig.ttf</string>
+    <string name="font_name_lato_light_italic">lato/Lato-LigIta.ttf</string>
+    <string name="font_name_lato_regular">lato/Lato-Reg.ttf</string>
+    <string name="font_name_lato_regular_italic">lato/Lato-RegIta.ttf</string>
+    <string name="font_name_leckerli_one_regular">leckerli-one/LeckerliOne-Regular.otf</string>
+    <string name="font_name_gasper_bold_italic">gaspar/Gaspar_Bold_Italic.otf</string>
+    <string name="font_name_gasper_bold">gaspar/Gaspar_Bold.otf</string>
+    <string name="font_name_gasper_regular_italic">gaspar/Gaspar_Regular_Italic.otf</string>
+    <string name="font_name_gasper_regular">gaspar/Gaspar_Regular.otf</string>
 
 </resources>

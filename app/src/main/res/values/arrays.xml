@@ -26,6 +26,7 @@
 
     <string-array name="font_entries">
         <item>Default</item>
+        <item>Migu 1C Bold</item>
         <item>Migu 1C Regular</item>
         <item>Roboto Black</item>
         <item>Roboto Black italic</item>
@@ -67,10 +68,29 @@
         <item>Source Serif Pro Bold</item>
         <item>Source Serif Pro Regular</item>
         <item>Source Serif Pro Semibold</item>
+        <item>ChunkFive</item>
+        <item>Amatic Bold</item>
+        <item>Amatic SC Regular</item>
+        <item>Lato Black</item>
+        <item>Lato Black Italic</item>
+        <item>Lato Bold</item>
+        <item>Lato Bold Italic</item>
+        <item>Lato Hairline</item>
+        <item>Lato Hairline Italic</item>
+        <item>Lato Light</item>
+        <item>Lato Light Italic</item>
+        <item>Lato Regular</item>
+        <item>Lato Regular Italic</item>
+        <item>Leckerli One</item>
+        <item>Gasper Bold Italic</item>
+        <item>Gasper Bold</item>
+        <item>Gasper Regular Italic</item>
+        <item>Gasper Regular</item>
     </string-array>
 
     <string-array name="font_values">
         <item />
+        <item>@string/font_name_migu_1c_bold</item>
         <item>@string/font_name_migu_1c_regular</item>
         <item>@string/font_name_roboto_black</item>
         <item>@string/font_name_roboto_black_italic</item>
@@ -112,6 +132,24 @@
         <item>@string/font_name_source_serif_pro_bold</item>
         <item>@string/font_name_source_serif_pro_regular</item>
         <item>@string/font_name_source_serif_pro_semibold</item>
+        <item>@string/font_name_chunk_five</item>
+        <item>@string/font_name_amatic_bold</item>
+        <item>@string/font_name_amatic_sc_regular</item>
+        <item>@string/font_name_lato_black</item>
+        <item>@string/font_name_lato_black_italic</item>
+        <item>@string/font_name_lato_bold</item>
+        <item>@string/font_name_lato_bold_italic</item>
+        <item>@string/font_name_lato_hairline</item>
+        <item>@string/font_name_lato_hairline_italic</item>
+        <item>@string/font_name_lato_light</item>
+        <item>@string/font_name_lato_light_italic</item>
+        <item>@string/font_name_lato_regular</item>
+        <item>@string/font_name_lato_regular_italic</item>
+        <item>@string/font_name_leckerli_one_regular</item>
+        <item>@string/font_name_gasper_bold_italic</item>
+        <item>@string/font_name_gasper_bold</item>
+        <item>@string/font_name_gasper_regular_italic</item>
+        <item>@string/font_name_gasper_regular</item>
     </string-array>
 
 </resources>
