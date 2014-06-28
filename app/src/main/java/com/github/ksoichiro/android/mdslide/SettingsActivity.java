@@ -18,6 +18,7 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
 
         ActionBar ab = getActionBar();
         if (ab != null) {
@@ -37,6 +38,12 @@ public class SettingsActivity extends PreferenceActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
     public static class SettingsFragment extends PreferenceFragment {
