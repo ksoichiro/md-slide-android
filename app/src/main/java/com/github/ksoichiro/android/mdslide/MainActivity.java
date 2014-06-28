@@ -29,7 +29,9 @@ import java.util.List;
 
 public class MainActivity extends FragmentActivity {
 
+    public static final String EXTRA_INITIAL_PAGE = "initialPage";
     private InputStream mIn;
+    private int mCurrentPage;
     private Uri mUri;
     private List<Page> mPages;
     private ViewPager mPager;
@@ -77,6 +79,12 @@ public class MainActivity extends FragmentActivity {
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
         adapter.setPages(mPages);
         mPager.setAdapter(adapter);
+        if (intent != null && intent.hasExtra(EXTRA_INITIAL_PAGE)) {
+            int initialPage = intent.getIntExtra(EXTRA_INITIAL_PAGE, 0);
+            if (0 <= initialPage && initialPage < mPages.size()) {
+                mPager.setCurrentItem(initialPage);
+            }
+        }
 
         Transition transition = Transition.DEFAULT;
         try {
@@ -204,6 +212,7 @@ public class MainActivity extends FragmentActivity {
         intent.addCategory(Intent.CATEGORY_DEFAULT);
         intent.setData(mUri);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(EXTRA_INITIAL_PAGE, mPager.getCurrentItem());
         startActivity(intent);
     }
 }
