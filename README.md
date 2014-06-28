@@ -3,6 +3,12 @@
 
 Markdown viewer for presentation with Android device.
 
+Markdown:
+![](images/screenshots/markdown.png)
+
+App:
+![](images/screenshots/device.png)
+
 ## Usage
 
 Currently, only the `Intent` can be used.  
