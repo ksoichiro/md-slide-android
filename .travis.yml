@@ -4,6 +4,7 @@ android:
     - tools
     - build-tools-19.1.0
     - android-19
+    - sysimg-19
     - extra-android-support
     - extra-android-m2repository
   licenses:
@@ -12,5 +13,7 @@ android:
     - android-sdk-license-598b93a6
     - android-sdk-preview-license-52d11cd2
 before_script:
+    - echo no | android create avd --force -n test -t android-19
+    - emulator -avd test -no-skin -no-audio -no-window &
     - chmod +x wait-for-emulator
     - ./wait-for-emulator
