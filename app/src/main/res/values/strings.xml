@@ -18,6 +18,7 @@
 
     <string name="font_name_default"/>
     <string name="font_name_code_default"/>
+    <string name="font_name_quote_default"/>
     <string name="font_name_migu_1c_bold">migu-1c-20130617/migu-1c-bold.ttf</string>
     <string name="font_name_migu_1c_regular">migu-1c-20130617/migu-1c-regular.ttf</string>
     <string name="font_name_roboto_black">roboto/Roboto-Black.ttf</string>

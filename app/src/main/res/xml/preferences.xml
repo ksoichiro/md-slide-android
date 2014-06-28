@@ -22,6 +22,11 @@
             android:key="fontForCodes"
             android:entries="@array/font_entries"
             android:entryValues="@array/font_values" />
+
+        <ListPreference android:title="Font for quotes"
+            android:key="fontForQuotes"
+            android:entries="@array/font_entries"
+            android:entryValues="@array/font_values" />
     </PreferenceCategory>
 
 </PreferenceScreen>

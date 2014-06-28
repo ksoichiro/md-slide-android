@@ -9,5 +9,6 @@ public enum ContentType {
     LI3,
     P,
     CODE,
+    QUOTE,
     IMG;
 }

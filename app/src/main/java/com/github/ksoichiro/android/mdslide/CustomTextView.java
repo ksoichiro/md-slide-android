@@ -1,13 +1,10 @@
 package com.github.ksoichiro.android.mdslide;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -17,6 +14,7 @@ public class CustomTextView extends TextView {
     public static Map<String, Typeface> typeFaces;
     public static String overrideFont;
     public static String overrideFontForCodes;
+    public static String overrideFontForQuotes;
 
     static {
         typeFaces = new HashMap<String, Typeface>();
@@ -40,19 +38,22 @@ public class CustomTextView extends TextView {
 
     private void init(AttributeSet attrs, int defStyle) {
         String attrFontName = null;
-        boolean isSourceCode = false;
+        FontType fontType = FontType.NORMAL;
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.CustomTextView, defStyle, 0);
             attrFontName = a.getString(R.styleable.CustomTextView_fontName);
-            isSourceCode = a.getBoolean(R.styleable.CustomTextView_sourceCode, false);
+            fontType = FontType.fontTypeFromCode(
+                    a.getInt(R.styleable.CustomTextView_fontType, FontType.NORMAL.getCode()));
             a.recycle();
         }
 
         String fontName = null;
-        if (!isSourceCode && !TextUtils.isEmpty(overrideFont)) {
+        if (fontType == FontType.NORMAL && !TextUtils.isEmpty(overrideFont)) {
             fontName = overrideFont;
-        } else if (isSourceCode && !TextUtils.isEmpty(overrideFontForCodes)) {
+        } else if (fontType == FontType.CODE && !TextUtils.isEmpty(overrideFontForCodes)) {
             fontName = overrideFontForCodes;
+        } else if (fontType == FontType.QUOTE && !TextUtils.isEmpty(overrideFontForQuotes)) {
+            fontName = overrideFontForQuotes;
         } else if (!TextUtils.isEmpty(attrFontName)) {
             fontName = attrFontName;
         }

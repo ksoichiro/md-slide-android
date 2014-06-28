@@ -102,6 +102,9 @@ public class PageFragment extends Fragment {
                 case CODE:
                     resId = R.layout.parts_code;
                     break;
+                case QUOTE:
+                    resId = R.layout.parts_quote;
+                    break;
                 case IMG:
                     resId = R.layout.parts_img;
                     break;

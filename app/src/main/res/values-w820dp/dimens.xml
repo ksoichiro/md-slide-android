@@ -20,6 +20,7 @@
     <dimen name="text_size_p">28sp</dimen>
 
     <dimen name="text_size_code">28sp</dimen>
+    <dimen name="text_size_quote">28sp</dimen>
 
     <dimen name="text_size_page_number">20sp</dimen>
 

@@ -19,6 +19,7 @@
     <dimen name="text_size_p">20sp</dimen>
 
     <dimen name="text_size_code">20sp</dimen>
+    <dimen name="text_size_quote">20sp</dimen>
 
     <dimen name="text_size_page_number">14sp</dimen>
 
@@ -27,5 +28,6 @@
     <dimen name="margin_left_li3">64dp</dimen>
 
     <dimen name="padding_code">8dp</dimen>
+    <dimen name="padding_quote">8dp</dimen>
 
 </resources>

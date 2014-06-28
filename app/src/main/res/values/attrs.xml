@@ -3,7 +3,11 @@
 
     <declare-styleable name="CustomTextView">
         <attr name="fontName" format="string|reference" />
-        <attr name="sourceCode" format="boolean|reference" />
+        <attr name="fontType" format="enum|reference">
+            <enum name="normal" value="0" />
+            <enum name="code" value="1" />
+            <enum name="quote" value="2" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="Presentation">
@@ -24,6 +28,7 @@
         <attr name="presentationTextLI3Text" format="reference" />
         <attr name="presentationTextP" format="reference" />
         <attr name="presentationTextCode" format="reference" />
+        <attr name="presentationTextQuote" format="reference" />
         <attr name="presentationImg" format="reference" />
         <attr name="presentationTextPageNumber" format="reference" />
     </declare-styleable>

@@ -44,6 +44,7 @@ public class MainActivity extends FragmentActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         CustomTextView.overrideFont = prefs.getString(SettingsActivity.PREF_FONT, "");
         CustomTextView.overrideFontForCodes = prefs.getString(SettingsActivity.PREF_FONT_FOR_CODES, "");
+        CustomTextView.overrideFontForQuotes = prefs.getString(SettingsActivity.PREF_FONT_FOR_QUOTES, "");
 
         Theme theme = Theme.BLACK;
         try {
@@ -185,6 +186,9 @@ public class MainActivity extends FragmentActivity {
         }
         if (!prefs.contains(SettingsActivity.PREF_FONT_FOR_CODES)) {
             editor.putString(SettingsActivity.PREF_FONT_FOR_CODES, getString(R.string.font_name_source_code_pro_regular));
+        }
+        if (!prefs.contains(SettingsActivity.PREF_FONT_FOR_QUOTES)) {
+            editor.putString(SettingsActivity.PREF_FONT_FOR_QUOTES, getString(R.string.font_name_lato_regular_italic));
         }
         editor.commit();
     }

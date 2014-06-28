@@ -49,10 +49,24 @@ public class Parser {
         Log.i("", "url: " + mUri);
         Page page = new Page();
         boolean isCode = false;
+        boolean isQuote = false;
         StringBuilder codes = null;
+        StringBuilder quotes = null;
         int pageNumber = 1;
         for (String line : lines) {
             Log.i("", "line: " + line);
+            Content content = new Content();
+            content.content = line;
+
+            // Quit previous mode
+            if (isQuote && !line.startsWith("> ")) {
+                // Quote block ends
+                content.contentType = ContentType.QUOTE;
+                content.content = quotes.toString();
+                isQuote = false;
+                page.contents.add(content);
+            }
+
             if (line.startsWith("---")) {
                 // New page
                 page.number = pageNumber;
@@ -61,8 +75,7 @@ public class Parser {
                 page = new Page();
                 continue;
             }
-            Content content = new Content();
-            content.content = line;
+
             if (isCode) {
                 if (line.startsWith("```")) {
                     // Code block ends
@@ -107,6 +120,12 @@ public class Parser {
                 // code
                 codes = new StringBuilder();
                 isCode = true;
+                continue;
+            } else if (line.startsWith("> ")) {
+                // quote
+                quotes = new StringBuilder();
+                quotes.append(line.substring(2));
+                isQuote = true;
                 continue;
             } else if (line.startsWith("![")) {
                 Pattern p = Pattern.compile("^!\\[([^\\]]*)\\]\\(([^\\)]*)\\)");
