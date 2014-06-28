@@ -33,7 +33,16 @@ public class Page implements Serializable {
         boolean onLeft = false;
         for (Content c : contents) {
             if (c.contentType == ContentType.IMG) {
-                onLeft = c.attributes.containsKey("left");
+                onLeft = true;
+                if (!c.attributes.containsKey("params")) {
+                    continue;
+                }
+                for (String param : (String[]) c.attributes.get("params")) {
+                    if ("right".equals(param)) {
+                        onLeft = false;
+                        break;
+                    }
+                }
                 break;
             }
         }
