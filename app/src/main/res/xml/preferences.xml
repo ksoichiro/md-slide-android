@@ -27,6 +27,9 @@
             android:key="fontForQuotes"
             android:entries="@array/font_entries"
             android:entryValues="@array/font_values" />
+
+        <CheckBoxPreference android:title="Show page number"
+            android:key="showPageNumber" />
     </PreferenceCategory>
 
 </PreferenceScreen>

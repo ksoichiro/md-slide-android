@@ -190,6 +190,9 @@ public class MainActivity extends FragmentActivity {
         if (!prefs.contains(SettingsActivity.PREF_FONT_FOR_QUOTES)) {
             editor.putString(SettingsActivity.PREF_FONT_FOR_QUOTES, getString(R.string.font_name_lato_regular_italic));
         }
+        if (!prefs.contains(SettingsActivity.PREF_SHOW_PAGE_NUMBER)) {
+            editor.putBoolean(SettingsActivity.PREF_SHOW_PAGE_NUMBER, false);
+        }
         editor.commit();
     }
 

@@ -1,8 +1,10 @@
 package com.github.ksoichiro.android.mdslide;
 
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -50,14 +52,17 @@ public class PageFragment extends Fragment {
 
         RelativeLayout root = (RelativeLayout) view.findViewById(R.id.root);
         root.removeAllViews();
-        TextView pn = (TextView) inflater.inflate(R.layout.page_number, null);
-        pn.setText(String.valueOf(p.number));
-        RelativeLayout.LayoutParams pnParams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
-        pnParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-        pnParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        root.addView(pn, pnParams);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        if (prefs.getBoolean(SettingsActivity.PREF_SHOW_PAGE_NUMBER, false)) {
+            TextView pn = (TextView) inflater.inflate(R.layout.page_number, null);
+            pn.setText(String.valueOf(p.number));
+            RelativeLayout.LayoutParams pnParams = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT);
+            pnParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            pnParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            root.addView(pn, pnParams);
+        }
 
         View parent;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
