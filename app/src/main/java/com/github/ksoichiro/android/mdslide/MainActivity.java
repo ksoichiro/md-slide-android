@@ -39,6 +39,8 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
         updatedDefaults();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
