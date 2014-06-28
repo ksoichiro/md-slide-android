@@ -1,6 +1,7 @@
 <resources>
 
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/AppActionBarStyle</item>
         <item name="presentationBackground">@style/Presentation.Black.Background</item>
         <item name="presentationScreen">@style/Presentation.Black.Screen</item>
         <item name="presentationTextH1">@style/Presentation.Black.Text.H1</item>
@@ -23,6 +24,7 @@
     </style>
 
     <style name="AppBaseWhiteTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/AppActionBarStyle</item>
         <item name="presentationBackground">@style/Presentation.White.Background</item>
         <item name="presentationScreen">@style/Presentation.White.Screen</item>
         <item name="presentationTextH1">@style/Presentation.White.Text.H1</item>
@@ -48,6 +50,10 @@
     </style>
 
     <style name="AppThemeWhite" parent="AppBaseWhiteTheme">
+    </style>
+
+    <style name="AppActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/actionbar</item>
     </style>
 
     <style name="Presentation" />
