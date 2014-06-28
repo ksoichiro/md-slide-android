@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 public class PageFragment extends Fragment {
 
     public static final String ARG_PAGE = "page";
+    public static String buretteString = "";
 
     public static PageFragment newInstance(Page page) {
         Bundle args = new Bundle();
@@ -85,6 +86,7 @@ public class PageFragment extends Fragment {
 
         for (Content content : p.contents) {
             int resId = 0;
+            boolean hasBurette = false;
             switch (content.contentType) {
                 case H1:
                     resId = R.layout.parts_h1;
@@ -97,12 +99,15 @@ public class PageFragment extends Fragment {
                     break;
                 case LI:
                     resId = R.layout.parts_li;
+                    hasBurette = true;
                     break;
                 case LI2:
                     resId = R.layout.parts_li2;
+                    hasBurette = true;
                     break;
                 case LI3:
                     resId = R.layout.parts_li3;
+                    hasBurette = true;
                     break;
                 case CODE:
                     resId = R.layout.parts_code;
@@ -119,6 +124,14 @@ public class PageFragment extends Fragment {
                     break;
             }
             View layout = inflater.inflate(resId, null);
+            if (hasBurette) {
+                TextView buretteView = (TextView) layout.findViewById(R.id.burette);
+                if (TextUtils.isEmpty(buretteString)) {
+                    buretteString = PreferenceManager.getDefaultSharedPreferences(
+                            getActivity()).getString(SettingsActivity.PREF_BURETTE, getString(R.string.burette_point));
+                }
+                buretteView.setText(buretteString);
+            }
             TextView tv = (TextView) layout.findViewById(R.id.text);
             if (tv != null) {
                 tv.setText(stripLink(content.content));

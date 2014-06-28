@@ -28,6 +28,11 @@
             android:entries="@array/font_entries"
             android:entryValues="@array/font_values" />
 
+        <ListPreference android:title="Burette"
+            android:key="burette"
+            android:entries="@array/burette_entries"
+            android:entryValues="@array/burette_values" />
+
         <CheckBoxPreference android:title="Show page number"
             android:key="showPageNumber" />
     </PreferenceCategory>

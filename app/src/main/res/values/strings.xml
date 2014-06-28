@@ -82,4 +82,12 @@
     <string name="font_name_gasper_regular_italic">gaspar/Gaspar_Regular_Italic.otf</string>
     <string name="font_name_gasper_regular">gaspar/Gaspar_Regular.otf</string>
 
+    <string name="burette_point">・</string>
+    <string name="burette_hyphen">-</string>
+    <string name="burette_circle">●</string>
+    <string name="burette_fastforward">&gt;&gt;</string>
+    <string name="burette_arrow">→</string>
+    <string name="burette_triangle">▶︎</string>
+    <string name="burette_finger">☞︎</string>
+
 </resources>

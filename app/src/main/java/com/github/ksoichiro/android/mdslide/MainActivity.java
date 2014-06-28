@@ -3,7 +3,6 @@ package com.github.ksoichiro.android.mdslide;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -15,8 +14,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
 import com.github.ksoichiro.android.mdslide.widget.transition.PopPageTransformer;
@@ -50,6 +47,7 @@ public class MainActivity extends FragmentActivity {
         CustomTextView.overrideFont = prefs.getString(SettingsActivity.PREF_FONT, "");
         CustomTextView.overrideFontForCodes = prefs.getString(SettingsActivity.PREF_FONT_FOR_CODES, "");
         CustomTextView.overrideFontForQuotes = prefs.getString(SettingsActivity.PREF_FONT_FOR_QUOTES, "");
+        PageFragment.buretteString = prefs.getString(SettingsActivity.PREF_BURETTE, "");
 
         Theme theme = Theme.BLACK;
         try {
@@ -210,6 +208,9 @@ public class MainActivity extends FragmentActivity {
         }
         if (!prefs.contains(SettingsActivity.PREF_FONT_FOR_QUOTES)) {
             editor.putString(SettingsActivity.PREF_FONT_FOR_QUOTES, getString(R.string.font_name_lato_regular_italic));
+        }
+        if (!prefs.contains(SettingsActivity.PREF_BURETTE)) {
+            editor.putString(SettingsActivity.PREF_BURETTE, getString(R.string.burette_point));
         }
         if (!prefs.contains(SettingsActivity.PREF_SHOW_PAGE_NUMBER)) {
             editor.putBoolean(SettingsActivity.PREF_SHOW_PAGE_NUMBER, false);

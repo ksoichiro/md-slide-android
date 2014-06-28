@@ -13,6 +13,7 @@ public class SettingsActivity extends PreferenceActivity {
     public static final String PREF_FONT = "font";
     public static final String PREF_FONT_FOR_CODES = "fontForCodes";
     public static final String PREF_FONT_FOR_QUOTES = "fontForQuotes";
+    public static final String PREF_BURETTE = "burette";
     public static final String PREF_SHOW_PAGE_NUMBER = "showPageNumber";
 
     @Override

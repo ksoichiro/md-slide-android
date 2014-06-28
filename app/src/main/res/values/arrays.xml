@@ -152,4 +152,24 @@
         <item>@string/font_name_gasper_regular</item>
     </string-array>
 
+    <string-array name="burette_entries">
+        <item>@string/burette_point</item>
+        <item>@string/burette_hyphen</item>
+        <item>@string/burette_circle</item>
+        <item>@string/burette_fastforward</item>
+        <item>@string/burette_arrow</item>
+        <item>@string/burette_triangle</item>
+        <item>@string/burette_finger</item>
+    </string-array>
+
+    <string-array name="burette_values">
+        <item>@string/burette_point</item>
+        <item>@string/burette_hyphen</item>
+        <item>@string/burette_circle</item>
+        <item>@string/burette_fastforward</item>
+        <item>@string/burette_arrow</item>
+        <item>@string/burette_triangle</item>
+        <item>@string/burette_finger</item>
+    </string-array>
+
 </resources>
