@@ -56,13 +56,12 @@ public class Parser {
         for (String line : lines) {
             Log.i("", "line: " + line);
             Content content = new Content();
-            content.content = line;
 
             // Quit previous mode
             if (isQuote && !line.startsWith("> ")) {
                 // Quote block ends
                 content.contentType = ContentType.QUOTE;
-                content.content = quotes.toString();
+                parseContentText(content, quotes.toString());
                 isQuote = false;
                 page.contents.add(content);
             }
@@ -80,7 +79,7 @@ public class Parser {
                 if (line.startsWith("```")) {
                     // Code block ends
                     content.contentType = ContentType.CODE;
-                    content.content = codes.toString();
+                    content.addContentText(new ContentText(codes.toString()));
                     isCode = false;
                 } else {
                     // Code block continues
@@ -91,31 +90,31 @@ public class Parser {
             } else if (line.startsWith("# ")) {
                 // H1
                 content.contentType = ContentType.H1;
-                content.content = line.substring(2);
+                parseContentText(content, line.substring(2));
             } else if (line.startsWith("## ")) {
                 // H2
                 content.contentType = ContentType.H2;
-                content.content = line.substring(3);
+                parseContentText(content, line.substring(3));
             } else if (line.startsWith("## ")) {
                 // H2
                 content.contentType = ContentType.H2;
-                content.content = line.substring(3);
+                parseContentText(content, line.substring(3));
             } else if (line.startsWith("### ")) {
                 // H3
                 content.contentType = ContentType.H3;
-                content.content = line.substring(4);
+                parseContentText(content, line.substring(4));
             } else if (line.startsWith("* ") || line.startsWith("- ")) {
                 // ul/li
                 content.contentType = ContentType.LI;
-                content.content = line.substring(2);
+                parseContentText(content, line.substring(2));
             } else if (line.startsWith("    * ") || line.startsWith("    - ")) {
                 // ul/li(2)
                 content.contentType = ContentType.LI2;
-                content.content = line.substring(6);
+                parseContentText(content, line.substring(6));
             } else if (line.startsWith("        * ") || line.startsWith("        - ")) {
                 // ul/li(2)
                 content.contentType = ContentType.LI3;
-                content.content = line.substring(10);
+                parseContentText(content, line.substring(10));
             } else if (line.startsWith("```")) {
                 // code
                 codes = new StringBuilder();
@@ -123,9 +122,11 @@ public class Parser {
                 continue;
             } else if (line.startsWith("> ")) {
                 // quote
-                quotes = new StringBuilder();
+                if (!isQuote) {
+                    isQuote = true;
+                    quotes = new StringBuilder();
+                }
                 quotes.append(line.substring(2));
-                isQuote = true;
                 continue;
             } else if (line.startsWith("![")) {
                 Pattern p = Pattern.compile("^!\\[([^\\]]*)\\]\\(([^\\)]*)\\)");
@@ -145,7 +146,7 @@ public class Parser {
                     Log.v("", "Image: params: " + paramsRaw);
                     Log.v("", "Image: url: " + url);
                     content.contentType = ContentType.IMG;
-                    content.content = "";
+                    content.initContentTexts();
                     content.attributes.put("params", params);
                     content.attributes.put("url", url);
                 } else {
@@ -154,16 +155,124 @@ public class Parser {
             } else if (!TextUtils.isEmpty(line)) {
                 // p
                 content.contentType = ContentType.P;
+                parseContentText(content, line);
             } else {
                 // ignore
                 continue;
             }
             page.contents.add(content);
         }
+
+        // Flush quotes
+        if (quotes != null && 0 < quotes.length()) {
+            Content content = new Content();
+            content.contentType = ContentType.QUOTE;
+            parseContentText(content, quotes.toString());
+            page.contents.add(content);
+        }
+
         page.number = pageNumber;
         mPages.add(page);
 
         return mPages;
+    }
+
+    private void parseContentText(final Content content, String target) {
+        StringBuilder buffer = new StringBuilder();
+        ContentTextType currentContentTextType = ContentTextType.TEXT;
+        for (String rest = target; 0 < rest.length(); rest = rest.substring(1)) {
+            if (rest.startsWith("`")) {
+                buffer = putContentText(buffer, content, currentContentTextType);
+                switch (currentContentTextType) {
+                    case CODE:
+                        currentContentTextType = ContentTextType.TEXT;
+                        break;
+                    default:
+                        currentContentTextType = ContentTextType.CODE;
+                        break;
+                }
+                continue;
+            } else if (currentContentTextType == ContentTextType.CODE) {
+                buffer.append(rest.substring(0, 1));
+                continue;
+            }
+
+            if (rest.startsWith("**")) {
+                buffer = putContentText(buffer, content, currentContentTextType);
+                switch (currentContentTextType) {
+                    case STRONG2:
+                        currentContentTextType = ContentTextType.TEXT;
+                        break;
+                    case EMPHASIS2:
+                        currentContentTextType = ContentTextType.EMPHASIS2_STRONG2;
+                        break;
+                    case EMPHASIS2_STRONG2:
+                        currentContentTextType = ContentTextType.EMPHASIS2;
+                        break;
+                    default:
+                        currentContentTextType = ContentTextType.STRONG2;
+                        break;
+                }
+                rest = rest.substring(1); // '*'
+            } else if (rest.startsWith("*")) {
+                buffer = putContentText(buffer, content, currentContentTextType);
+                switch (currentContentTextType) {
+                    case EMPHASIS:
+                    case EMPHASIS_STRONG:
+                        currentContentTextType = ContentTextType.TEXT;
+                        break;
+                    case STRONG:
+                        currentContentTextType = ContentTextType.STRONG_EMPHASIS;
+                        break;
+                    case STRONG_EMPHASIS:
+                        currentContentTextType = ContentTextType.STRONG;
+                        break;
+                    default:
+                        currentContentTextType = ContentTextType.EMPHASIS;
+                        break;
+                }
+            } else if (rest.startsWith("__")) {
+                buffer = putContentText(buffer, content, currentContentTextType);
+                switch (currentContentTextType) {
+                    case STRONG:
+                    case STRONG_EMPHASIS:
+                        currentContentTextType = ContentTextType.TEXT;
+                        break;
+                    case EMPHASIS:
+                        currentContentTextType = ContentTextType.EMPHASIS_STRONG;
+                        break;
+                    case EMPHASIS_STRONG:
+                        currentContentTextType = ContentTextType.EMPHASIS;
+                        break;
+                    default:
+                        currentContentTextType = ContentTextType.STRONG;
+                        break;
+                }
+                rest = rest.substring(1); // '_'
+            } else if (rest.startsWith("_")) {
+                buffer = putContentText(buffer, content, currentContentTextType);
+                switch (currentContentTextType) {
+                    case EMPHASIS2:
+                        currentContentTextType = ContentTextType.TEXT;
+                        break;
+                    default:
+                        currentContentTextType = ContentTextType.EMPHASIS2;
+                        break;
+                }
+            } else {
+                buffer.append(rest.substring(0, 1));
+            }
+        }
+        if (0 < buffer.length()) {
+            content.addContentText(new ContentText(buffer.toString(), currentContentTextType));
+        }
+    }
+
+    private StringBuilder putContentText(final StringBuilder buffer, final Content content, final ContentTextType currentContentTextType) {
+        if (0 < buffer.length()) {
+            content.addContentText(new ContentText(buffer.toString(), currentContentTextType));
+        }
+        return new StringBuilder();
     }
 
     private List<String> readFile(InputStream inStream) {
