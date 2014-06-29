@@ -35,6 +35,28 @@ public static void main(String[] args) {
 
 ## Quotation
 
-> Markdown is a text-to-HTML conversion tool for web writers.
+> *Markdown* is a text-to-HTML conversion tool for web writers.
 
 -- daringfireball.net
+
+---
+
+## Emphasis
+
+*EM* and _EM2_  
+__STRONG__ and **STRONG2**  
+*__EM STRONG__* and __*STRONG EM*__  
+and _**EM STRONG2**_  
+*EM __EM STRONG__ EM* and __STRONG *STRONG EM* STRONG__
+and _EM2 **EM STRONG2** EM2_  
+
+---
+
+## Emphasis in quotes
+
+> *EM* and _EM2_  
+> __STRONG__ and **STRONG2**  
+> *__EM STRONG__* and __*STRONG EM*__  
+> and _**EM STRONG2**_  
+> *EM __EM STRONG__ EM* and __STRONG *STRONG EM* STRONG__
+> and _EM2 **EM STRONG2** EM2_  

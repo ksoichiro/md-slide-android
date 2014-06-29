@@ -1,12 +1,17 @@
 package com.github.ksoichiro.android.mdslide;
 
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
+import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -134,11 +139,59 @@ public class PageFragment extends Fragment {
             }
             TextView tv = (TextView) layout.findViewById(R.id.text);
             if (tv != null) {
-                tv.setText(stripLink(content.content));
-                if (p.hasImageOnLeft()) {
-                    parentContentRight.addView(layout);
-                } else {
-                    parentContent.addView(layout);
+                if (0 < content.contentTexts.size()) {
+                    SpannableStringBuilder sb = new SpannableStringBuilder();
+                    int start;
+                    for (ContentText contentText : content.contentTexts) {
+                        switch (contentText.type) {
+                            case CODE:
+                                String fontName = "source-code-pro/SourceCodePro-Regular.otf";
+                                if (!TextUtils.isEmpty(CustomTextView.overrideFontForCodes)) {
+                                    fontName = CustomTextView.overrideFontForCodes;
+                                }
+                                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/" + fontName);
+                                CustomFontSpan span = new CustomFontSpan(tf);
+                                start = sb.length();
+                                sb.append(stripLink(contentText.text));
+                                sb.setSpan(span, start, sb.length(),
+                                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case EMPHASIS:
+                            case EMPHASIS2:
+                                StyleSpan emSpan = new StyleSpan(Typeface.ITALIC);
+                                start = sb.length();
+                                sb.append(stripLink(contentText.text));
+                                sb.setSpan(emSpan, start, sb.length(),
+                                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case STRONG:
+                            case STRONG2:
+                                StyleSpan strongSpan = new StyleSpan(Typeface.BOLD);
+                                start = sb.length();
+                                sb.append(stripLink(contentText.text));
+                                sb.setSpan(strongSpan, start, sb.length(),
+                                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case EMPHASIS_STRONG:
+                            case STRONG_EMPHASIS:
+                            case EMPHASIS2_STRONG2:
+                                StyleSpan strongEmSpan = new StyleSpan(Typeface.BOLD_ITALIC);
+                                start = sb.length();
+                                sb.append(stripLink(contentText.text));
+                                sb.setSpan(strongEmSpan, start, sb.length(),
+                                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                break;
+                            case TEXT:
+                            default:
+                                sb.append(stripLink(contentText.text));
+                        }
+                    }
+                    tv.setText(sb);
+                    if (p.hasImageOnLeft()) {
+                        parentContentRight.addView(layout);
+                    } else {
+                        parentContent.addView(layout);
+                    }
                 }
             } else {
                 ImageView img = (ImageView) layout.findViewById(R.id.img);
