@@ -81,6 +81,14 @@
     <string name="font_name_gasper_bold">gaspar/Gaspar_Bold.otf</string>
     <string name="font_name_gasper_regular_italic">gaspar/Gaspar_Regular_Italic.otf</string>
     <string name="font_name_gasper_regular">gaspar/Gaspar_Regular.otf</string>
+    <string name="font_name_amble_bold">amble/Amble-Bold.ttf</string>
+    <string name="font_name_amble_bold_italic">amble/Amble-BoldItalic.ttf</string>
+    <string name="font_name_amble_italic">amble/Amble-Italic.ttf</string>
+    <string name="font_name_amble_light">amble/Amble-Light.ttf</string>
+    <string name="font_name_amble_light_condensed">amble/Amble-LightCondensed.ttf</string>
+    <string name="font_name_amble_light_condensed_italic">amble/Amble-LightCondensedItalic.ttf</string>
+    <string name="font_name_amble_light_italic">amble/Amble-LightItalic.ttf</string>
+    <string name="font_name_amble_regular">amble/Amble-Regular.ttf</string>
 
     <string name="burette_point">・</string>
     <string name="burette_hyphen">-</string>

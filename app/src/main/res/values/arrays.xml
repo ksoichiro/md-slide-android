@@ -86,6 +86,14 @@
         <item>Gasper Bold</item>
         <item>Gasper Regular Italic</item>
         <item>Gasper Regular</item>
+        <item>Amble Bold</item>
+        <item>Amble Bold Italic</item>
+        <item>Amble Italic</item>
+        <item>Amble Light</item>
+        <item>Amble Light Italic</item>
+        <item>Amble Light Condensed</item>
+        <item>Amble Light Condensed Italic</item>
+        <item>Amble Regular</item>
     </string-array>
 
     <string-array name="font_values">
@@ -150,6 +158,14 @@
         <item>@string/font_name_gasper_bold</item>
         <item>@string/font_name_gasper_regular_italic</item>
         <item>@string/font_name_gasper_regular</item>
+        <item>@string/font_name_amble_bold</item>
+        <item>@string/font_name_amble_bold_italic</item>
+        <item>@string/font_name_amble_italic</item>
+        <item>@string/font_name_amble_light</item>
+        <item>@string/font_name_amble_light_condensed</item>
+        <item>@string/font_name_amble_light_condensed_italic</item>
+        <item>@string/font_name_amble_light_italic</item>
+        <item>@string/font_name_amble_regular</item>
     </string-array>
 
     <string-array name="burette_entries">
