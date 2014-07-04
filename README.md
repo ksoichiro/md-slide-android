@@ -3,10 +3,10 @@
 
 Markdown viewer for presentation with Android device.
 
-Markdown:
+Markdown:  
 ![](images/screenshots/markdown.png)
 
-App:
+App:  
 ![](images/screenshots/device.png)
 
 ## Usage
