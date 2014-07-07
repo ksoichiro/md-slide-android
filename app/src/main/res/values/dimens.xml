@@ -30,4 +30,6 @@
     <dimen name="padding_code">8dp</dimen>
     <dimen name="padding_quote">8dp</dimen>
 
+    <dimen name="divider_stroke_width">0.6dp</dimen>
+
 </resources>

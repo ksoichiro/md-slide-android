@@ -3,19 +3,26 @@ package com.github.ksoichiro.android.mdslide;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
 import com.github.ksoichiro.android.mdslide.widget.transition.PopPageTransformer;
@@ -36,6 +43,8 @@ public class MainActivity extends FragmentActivity {
     private List<Page> mPages;
     private ViewPager mPager;
     private boolean mFullscreen;
+    private DrawerLayout mDrawer;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +79,60 @@ public class MainActivity extends FragmentActivity {
 
             ab.setDisplayShowTitleEnabled(false);
             ab.setDisplayShowCustomEnabled(true);
+            ab.setDisplayHomeAsUpEnabled(true);
             ab.setCustomView(v);
         }
+
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer,
+                R.drawable.ic_drawer, 0, 0) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+        View leftDrawer = findViewById(R.id.left_drawer);
+        LinearLayout examplesLayout = (LinearLayout) leftDrawer.findViewById(R.id.examples);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        try {
+            for (String file : getAssets().list("slides")) {
+                if (!file.endsWith(".md")) {
+                    continue;
+                }
+                String showName = file.replaceAll(".md", "");
+                View row = inflater.inflate(R.layout.drawer_example_row, null);
+                Button item = (Button) row.findViewById(R.id.button_item);
+                item.setText(showName);
+                final String path = file;
+                item.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showExample(path);
+                    }
+                });
+                examplesLayout.addView(row);
+                View divider = inflater.inflate(R.layout.divider, null);
+                examplesLayout.addView(divider);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mDrawer.setDrawerListener(mDrawerToggle);
 
         Intent intent = getIntent();
         Uri uri = intent.getData();
         if (uri == null) {
             try {
-                mIn = getResources().getAssets().open("slides/default.md");
+                String path = intent.getStringExtra(Intent.EXTRA_TEXT);
+                if (TextUtils.isEmpty(path)) {
+                    path = "slides/default.md";
+                }
+                mIn = getResources().getAssets().open(path);
                 mPages = new Parser(mIn).parse();
             } catch (IOException e) {
                 return;
@@ -120,6 +175,18 @@ public class MainActivity extends FragmentActivity {
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -243,5 +310,15 @@ public class MainActivity extends FragmentActivity {
 
     private void showSettings() {
         startActivityForResult(new Intent(this, SettingsActivity.class), REQUEST_CODE_SETTINGS);
+    }
+
+    private void showExample(final String exampleMdName) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.putExtra(Intent.EXTRA_TEXT, "slides/" + exampleMdName);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(EXTRA_INITIAL_PAGE, mPager.getCurrentItem());
+        startActivity(intent);
     }
 }
