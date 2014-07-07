@@ -136,7 +136,7 @@ public class MainActivity extends FragmentActivity {
             try {
                 String path = intent.getStringExtra(Intent.EXTRA_TEXT);
                 if (TextUtils.isEmpty(path)) {
-                    path = "slides/default.md";
+                    path = "slides/introduction.md";
                 }
                 mIn = getResources().getAssets().open(path);
                 mPages = new Parser(mIn).parse();
