@@ -1,10 +1,12 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.app;
 
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.view.MenuItem;
+
+import com.github.ksoichiro.android.mdslide.R;
 
 public class SettingsActivity extends PreferenceActivity {
 

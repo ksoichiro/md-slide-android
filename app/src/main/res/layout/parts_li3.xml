@@ -5,7 +5,7 @@
     android:gravity="left|top"
     android:orientation="horizontal">
 
-    <com.github.ksoichiro.android.mdslide.CustomTextView
+    <com.github.ksoichiro.android.mdslide.widget.CustomTextView
         style="?attr/presentationTextLI3Burette"
         android:id="@+id/burette"
         android:layout_width="wrap_content"
@@ -13,7 +13,7 @@
         android:text="●"
         />
 
-    <com.github.ksoichiro.android.mdslide.CustomTextView
+    <com.github.ksoichiro.android.mdslide.widget.CustomTextView
         style="?attr/presentationTextLI3Text"
         android:id="@+id/text"
         android:layout_width="wrap_content"

@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.widget;
 
 import android.graphics.Typeface;
 import android.text.TextPaint;

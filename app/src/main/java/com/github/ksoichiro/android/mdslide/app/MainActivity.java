@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.app;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -22,8 +22,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.github.ksoichiro.android.mdslide.widget.CustomTextView;
+import com.github.ksoichiro.android.mdslide.slide.Page;
+import com.github.ksoichiro.android.mdslide.PageAdapter;
+import com.github.ksoichiro.android.mdslide.markdown.Parser;
+import com.github.ksoichiro.android.mdslide.R;
+import com.github.ksoichiro.android.mdslide.style.Theme;
+import com.github.ksoichiro.android.mdslide.style.Transition;
 import com.github.ksoichiro.android.mdslide.widget.transition.FadePageTransformer;
 import com.github.ksoichiro.android.mdslide.widget.transition.PopPageTransformer;
 import com.github.ksoichiro.android.mdslide.widget.transition.PushPageTransformer;

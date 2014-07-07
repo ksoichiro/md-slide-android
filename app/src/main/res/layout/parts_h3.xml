@@ -1,4 +1,4 @@
-<com.github.ksoichiro.android.mdslide.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.github.ksoichiro.android.mdslide.widget.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/text"
     style="?attr/presentationTextH3"
     android:layout_width="wrap_content"

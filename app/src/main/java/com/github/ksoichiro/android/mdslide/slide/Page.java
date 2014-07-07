@@ -1,4 +1,7 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.slide;
+
+import com.github.ksoichiro.android.mdslide.slide.Content;
+import com.github.ksoichiro.android.mdslide.slide.ContentType;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.slide;
 
 public enum ContentTextType {
     TEXT,

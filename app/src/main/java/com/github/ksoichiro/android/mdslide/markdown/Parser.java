@@ -1,9 +1,14 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.markdown;
 
-import android.content.res.AssetManager;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.github.ksoichiro.android.mdslide.slide.Content;
+import com.github.ksoichiro.android.mdslide.slide.ContentText;
+import com.github.ksoichiro.android.mdslide.slide.ContentTextType;
+import com.github.ksoichiro.android.mdslide.slide.ContentType;
+import com.github.ksoichiro.android.mdslide.slide.Page;
 
 import java.io.BufferedReader;
 import java.io.File;

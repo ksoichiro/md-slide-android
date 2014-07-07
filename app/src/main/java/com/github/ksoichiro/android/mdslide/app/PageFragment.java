@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.app;
 
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -11,7 +11,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
-import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,6 +20,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.github.ksoichiro.android.mdslide.slide.Content;
+import com.github.ksoichiro.android.mdslide.slide.ContentText;
+import com.github.ksoichiro.android.mdslide.widget.CustomFontSpan;
+import com.github.ksoichiro.android.mdslide.widget.CustomTextView;
+import com.github.ksoichiro.android.mdslide.slide.Page;
+import com.github.ksoichiro.android.mdslide.R;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import com.github.ksoichiro.android.mdslide.R;
+import com.github.ksoichiro.android.mdslide.widget.FontType;
 
 import java.util.HashMap;
 import java.util.Map;

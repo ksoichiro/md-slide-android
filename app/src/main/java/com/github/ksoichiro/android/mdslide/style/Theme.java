@@ -1,4 +1,6 @@
-package com.github.ksoichiro.android.mdslide;
+package com.github.ksoichiro.android.mdslide.style;
+
+import com.github.ksoichiro.android.mdslide.R;
 
 public enum Theme {
     BLACK(R.style.AppTheme),
