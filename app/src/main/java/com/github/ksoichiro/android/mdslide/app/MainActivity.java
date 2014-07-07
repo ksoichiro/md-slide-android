@@ -113,7 +113,7 @@ public class MainActivity extends FragmentActivity {
                 String showName = file.replaceAll(".md", "");
                 View row = inflater.inflate(R.layout.drawer_example_row, null);
                 Button item = (Button) row.findViewById(R.id.button_item);
-                item.setText(showName);
+                item.setText(capitalizeFirstChar(showName));
                 final String path = file;
                 item.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -326,5 +326,13 @@ public class MainActivity extends FragmentActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(EXTRA_INITIAL_PAGE, mPager.getCurrentItem());
         startActivity(intent);
+    }
+
+    private String capitalizeFirstChar(final String s) {
+        String result = s.substring(0, 1).toUpperCase();
+        if (s.length() > 1) {
+            result += s.substring(1);
+        }
+        return result;
     }
 }
