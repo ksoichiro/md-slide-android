@@ -68,6 +68,7 @@ public class Parser {
                 content.contentType = ContentType.QUOTE;
                 parseContentText(content, quotes.toString());
                 isQuote = false;
+                quotes = null;
                 page.contents.add(content);
             }
 
