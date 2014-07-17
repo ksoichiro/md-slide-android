@@ -14,6 +14,10 @@ App:
 Currently, only the `Intent` can be used.  
 Share `.md` file from file explorer apps, and choose `md-slide`.
 
+## Examples
+
+Examples are in the assets directory and you can see them from the navigation drawer.
+
 ## License
 
     Copyright 2014 Soichiro Kashima
